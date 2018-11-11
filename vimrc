@@ -1,5 +1,17 @@
+" Maintainer: Bryant Finney
+
+" ----- preferences for normal mode -----
+" map ctrl-delete functionality:
 nnoremap <C-Del> dw
 nnoremap <C-kDel> dw
+
+" map ctrl+d to delete the current line
+nnoremap <C-D> :dl<Enter>
+
+
+" ----- preferences for insert mode -----
+" map ctrl+d to delete the current line
+inoremap <C-D> <Esc>:dl<Enter>
 
 call plug#begin('~/.vim/plugged')
 

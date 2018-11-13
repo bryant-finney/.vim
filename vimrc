@@ -13,6 +13,10 @@ nnoremap <C-D> :dl<Enter>
 " map ctrl+d to delete the current line
 inoremap <C-D> <Esc>:dl<Enter>
 
+" ----- general preferences -----
+set tabstop=4 shiftwidth=4 expandtab
+
+" ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')
 
 " Add documentation for the vim-plug wiki
@@ -22,4 +26,3 @@ Plug 'https://github.com/junegunn/vim-plug.git'
 Plug 'https://github.com/honza/vim-snippets.git'
 
 call plug#end()
-

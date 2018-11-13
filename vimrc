@@ -15,6 +15,9 @@ inoremap <C-D> <Esc>:dl<Enter>
 
 " ----- general preferences -----
 set tabstop=4 shiftwidth=4 expandtab
+set wrap!
+set colorcolumn=89
+set number
 
 " ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')

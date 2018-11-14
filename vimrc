@@ -13,11 +13,17 @@ nnoremap <C-D> :dl<Enter>
 " map ctrl+d to delete the current line
 inoremap <C-D> <Esc>:dl<Enter>
 
+" map ctrl+delete this causes the
+" cursor to shift one place to the right when  *not* deleting
+" the last word on the line
+inoremap <C-Del> <C-[><Right>ve<Del>a
+
 " ----- general preferences -----
 set tabstop=4 shiftwidth=4 expandtab
 set wrap!
 set colorcolumn=89
 set number
+set iskeyword-=_
 
 " ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')

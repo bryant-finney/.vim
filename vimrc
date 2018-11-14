@@ -35,7 +35,12 @@ set number
 set iskeyword-=_
 set autochdir
 set cursorline
-
+set whichwrap=b,s,[,]
+set backspace=indent,eol,start
+set expandtab
+set smartindent
+set copyindent
+set preserveindent
 
 " ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')

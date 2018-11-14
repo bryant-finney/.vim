@@ -34,6 +34,8 @@ set colorcolumn=89
 set number
 set iskeyword-=_
 set autochdir
+set cursorline
+
 
 " ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')

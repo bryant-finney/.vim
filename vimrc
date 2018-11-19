@@ -3,17 +3,23 @@
 " ----- preferences for normal mode -----
 " map ctrl-delete functionality:
 nnoremap <C-Del> ved
-nnoremap <C-kDel> ved
+" and for the latptop's builtin keyboard
+" nnoremap <C-kDel> ved
 
 " map ctrl+shift+delete to delete to the end of the word (instad of moving to
 " the beginning of the next)
 nnoremap <C-S-Del> vEhd
+" nnoremap <C-S-kDel> vEhd                 " and the builtin keyboard
 
 " map ctrl+d to delete the current line
 nnoremap <C-D> :dl<Enter>
 
 " map ctrl+backspace to delete the previous word
 nnoremap <C-BS> vbd
+
+" todo: mapping this on top of <C-BS> does strange things on the external
+" keyboard
+" nnoremap  vbd                         " and the builtin keyboard
 
 " map backspace to delete the previous characer
 nnoremap <BS> X
@@ -35,12 +41,20 @@ inoremap <C-S-BS> <C-[>vBdi
 " map ctrl+backspace to delete the previous word
 inoremap <C-BS> <C-W>
 
+" todo: mapping this on top of <C-BS> does strange things on the external
+" keyboard
+" inoremap  <C-W>                       " and the builtin keyboard
+
 " map ctrl+delete this causes the cursor to shift one place to the right when
 " deleting the first word on the line
 inoremap <C-Del> <C-[>lvedi
+" also map the delete key on the laptop's builtin keyboard
+" inoremap <C-kDel> <C-[>lvedi
 
 " map ctrl+shift+delete to delete to the end of the WORD 
 inoremap <C-S-Del> <C-[>lvEhdi
+" also map the delete key on the laptop's builtin keyboard
+" inoremap <C-S-kDel> <C-[>lvEhdi
 
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD
 " boundaries; supplement with ctrl+shift keys
@@ -73,8 +87,26 @@ set copyindent
 set preserveindent
 set pumheight=10
 
+
+" define a function (called on :w) to remove trailing spaces and to replace
+" tab characters with four spaces
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+
+    %s/\s\+$//e
+    %s/\t/    /e
+    call winrestview(l:save)
+endfun
+autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested :call TrimWhitespace()
+
+" configure vim to automatically remove trailing whitespace 
+" autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested %s/\s\+$//e /+1; %s/\t/    /e
+" configure vim to automatically replace tabs with four spaces on save
+" autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested %s/\t/    /e
+
 " set specifically for matlab, but probably generally useful:
 filetype indent on
+source $VIMRUNTIME/macros/matchit.vim
 
 " ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')
@@ -90,8 +122,8 @@ Plug 'https://github.com/raingo/vim-matlab.git'
 
 " ----- configure vim-matlab -----
 
-" generate links for each directory
-!bash $HOME/.vim/create_links.sh
+" generate links for each file (so that the plugin files are sourced
+" !bash $HOME/.vim/create_links.sh
 
 " generate the help tags
 helptags $HOME/.vim/plugged/vim-matlab/doc

@@ -1,0 +1,1 @@
+/home/bryant.finney/.vim/plugged/vim-plug/doc/plug.txt

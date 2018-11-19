@@ -59,7 +59,7 @@ vnoremap <C-S-Left> B
 
 " ----- general preferences -----
 set tabstop=4 shiftwidth=4 expandtab
-set wrap!
+set nowrap
 set colorcolumn=89
 set number
 set iskeyword-=_
@@ -73,6 +73,9 @@ set copyindent
 set preserveindent
 set pumheight=10
 
+" set specifically for matlab, but probably generally useful:
+filetype indent on
+
 " ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')
 
@@ -85,4 +88,17 @@ Plug 'https://github.com/honza/vim-snippets.git'
 " Add vim-matlab (repo was created from MatLab File Exchange post)
 Plug 'https://github.com/raingo/vim-matlab.git'
 
+" ----- configure vim-matlab -----
+
+" generate links for each directory
+!bash $HOME/.vim/create_links.sh
+
+" generate the help tags
+helptags $HOME/.vim/plugged/vim-matlab/doc
+
+" integrate the 'make' command (use mlint)
+autocmd BufEnter *.m compiler mlint
+
 call plug#end()
+
+

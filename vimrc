@@ -31,6 +31,10 @@ nnoremap <C-Left> b
 nnoremap <C-S-Right> E
 nnoremap <C-S-Left> B
 
+" map shift tab to unindent
+nnoremap <S-Tab> <<
+
+
 " ----- preferences for insert mode -----
 " map ctrl+d to delete the current line
 inoremap <C-D> <C-[>:dl<Enter>
@@ -62,6 +66,10 @@ inoremap <C-Right> <C-[>ea
 inoremap <C-Left> <C-[>bi
 inoremap <C-S-Right> <C-[>Ea
 inoremap <C-S-Left> <C-[>Bi
+
+" map shift tab to unindent
+inoremap <S-Tab> <C-[><<i
+
 
 " ----- preferences for visual mode -----
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD

@@ -1,6 +1,13 @@
 " Maintainer: Bryant Finney
 
 " ----- preferences for normal mode -----
+" map original semicolon behavior to new <C-Del> behavior
+nnoremap ;; ;
+
+" map semicolon to 'q:'
+nmap ; q:
+
+
 " map ctrl-delete functionality:
 nnoremap <C-Del> ved
 " and for the latptop's builtin keyboard
@@ -32,7 +39,7 @@ nnoremap <C-S-Right> E
 nnoremap <C-S-Left> B
 
 " map shift tab to unindent
-nnoremap <S-Tab> <<
+nnoremap <S-Tab> v<S-<>         " TODO: this really needs to be 'delete previous spaces'
 
 
 " ----- preferences for insert mode -----
@@ -68,7 +75,7 @@ inoremap <C-S-Right> <C-[>Ea
 inoremap <C-S-Left> <C-[>Bi
 
 " map shift tab to unindent
-inoremap <S-Tab> <C-[><<i
+inoremap <S-Tab> <C-[>v<S-<>
 
 
 " ----- preferences for visual mode -----
@@ -78,6 +85,10 @@ vnoremap <C-Right> e
 vnoremap <C-Left> b
 vnoremap <C-S-Right> Eh
 vnoremap <C-S-Left> B
+
+" map shift tab to unindent
+vnoremap <S-Tab> <S-<>         " TODO: this really needs to be 'delete previous spaces'
+
 
 " ----- general preferences -----
 set tabstop=4 shiftwidth=4 expandtab

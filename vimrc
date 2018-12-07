@@ -52,6 +52,9 @@ inoremap <C-S-BS> <C-[>vBdi
 " map ctrl+backspace to delete the previous word
 inoremap <C-BS> <C-W>
 
+" map ctrl+space to overload ctrl+n (for autocomplete)
+inoremap <C-Space> <C-P>
+
 " todo: mapping this on top of <C-BS> does strange things on the external
 " keyboard
 " inoremap  <C-W>                       " and the builtin keyboard
@@ -77,6 +80,9 @@ inoremap <C-S-Left> <C-[>Bi
 " map shift tab to unindent
 inoremap <S-Tab> <C-[>v<S-<>
 
+
+" ----- preferences for command mode -----
+cmap <C-BS> <C-W>
 
 " ----- preferences for visual mode -----
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD
@@ -106,6 +112,9 @@ set copyindent
 set preserveindent
 set pumheight=10
 
+" configure autocompletion display options
+set wildmenu
+set wildmode=longest,full
 
 " define a function (called on :w) to remove trailing spaces and to replace
 " tab characters with four spaces
@@ -126,6 +135,7 @@ autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested :call TrimWhit
 " set specifically for matlab, but probably generally useful:
 filetype indent on
 source $VIMRUNTIME/macros/matchit.vim
+source $VIMRUNTIME/ftplugin/man.vim
 
 " ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')
@@ -139,6 +149,9 @@ Plug 'https://github.com/honza/vim-snippets.git'
 " Add vim-matlab (repo was created from MatLab File Exchange post)
 Plug 'https://github.com/raingo/vim-matlab.git'
 
+" Add UltiSnips for template insertion
+Plug 'https://github.com/SirVer/ultisnips.git'
+
 " ----- configure vim-matlab -----
 
 " generate links for each file (so that the plugin files are sourced
@@ -151,5 +164,4 @@ helptags $HOME/.vim/plugged/vim-matlab/doc
 autocmd BufEnter *.m compiler mlint
 
 call plug#end()
-
 

@@ -1,1 +1,1 @@
-/home/bryant.finney/.vim/plugged/vim-matlab/indent/matlab.vim
+/home/bryant/.vim/plugged/vim-matlab/indent/matlab.vim

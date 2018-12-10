@@ -1,1 +1,1 @@
-/home/bryant.finney/.vim/plugged/vim-snippets/pythonx/vimsnippets.py
+/home/bryant/.vim/plugged/vim-snippets/pythonx/vimsnippets.py

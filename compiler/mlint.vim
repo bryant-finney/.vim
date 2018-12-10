@@ -1,1 +1,1 @@
-/home/bryant.finney/.vim/plugged/vim-matlab/compiler/mlint.vim
+/home/bryant/.vim/plugged/vim-matlab/compiler/mlint.vim

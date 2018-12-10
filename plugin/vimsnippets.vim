@@ -1,1 +1,1 @@
-/home/bryant.finney/.vim/plugged/vim-snippets/plugin/vimsnippets.vim
+/home/bryant/.vim/plugged/vim-snippets/plugin/vimsnippets.vim

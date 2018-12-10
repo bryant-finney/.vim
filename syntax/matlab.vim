@@ -1,1 +1,1 @@
-/home/bryant.finney/.vim/plugged/vim-matlab/syntax/matlab.vim
+/home/bryant/.vim/plugged/vim-matlab/syntax/matlab.vim

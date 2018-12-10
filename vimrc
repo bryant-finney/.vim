@@ -152,6 +152,9 @@ Plug 'https://github.com/raingo/vim-matlab.git'
 " Add UltiSnips for template insertion
 Plug 'https://github.com/SirVer/ultisnips.git'
 
+" Add vim-latex for editing LaTeX documents
+Plug 'https://github.com/vim-latex/vim-latex.git'
+
 " ----- configure vim-matlab -----
 
 " generate links for each file (so that the plugin files are sourced

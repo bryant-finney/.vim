@@ -1,5 +1,6 @@
 .netrwhist
+plugged/ultisnips
+plugged/vim-latex
+plugged/vim-matlab
 plugged/vim-plug
 plugged/vim-snippets
-plugged/vim-matlab
-plugged/ultisnips

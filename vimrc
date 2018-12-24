@@ -65,7 +65,7 @@ inoremap <C-Del> <C-[>lvedi
 " also map the delete key on the laptop's builtin keyboard
 " inoremap <C-kDel> <C-[>lvedi
 
-" map ctrl+shift+delete to delete to the end of the WORD 
+" map ctrl+shift+delete to delete to the end of the WORD
 inoremap <C-S-Del> <C-[>lvEhdi
 " also map the delete key on the laptop's builtin keyboard
 " inoremap <C-S-kDel> <C-[>lvEhdi
@@ -100,6 +100,7 @@ vnoremap <S-Tab> <S-<>         " TODO: this really needs to be 'delete previous 
 set tabstop=4 shiftwidth=4 expandtab
 set nowrap
 set colorcolumn=89
+set textwidth=89
 set number
 set iskeyword-=_
 set autochdir
@@ -111,6 +112,8 @@ set smartindent
 set copyindent
 set preserveindent
 set pumheight=10
+set showmatch         " toggle showmatch to jump the cursor back to the opening bracket
+set hlsearch
 
 " configure autocompletion display options
 set wildmenu
@@ -125,9 +128,9 @@ fun! TrimWhitespace()
     %s/\t/    /e
     call winrestview(l:save)
 endfun
-autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested :call TrimWhitespace()
+autocmd FileType c,cpp,matlab,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
 
-" configure vim to automatically remove trailing whitespace 
+" configure vim to automatically remove trailing whitespace
 " autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested %s/\s\+$//e /+1; %s/\t/    /e
 " configure vim to automatically replace tabs with four spaces on save
 " autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested %s/\t/    /e
@@ -136,6 +139,15 @@ autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested :call TrimWhit
 filetype indent on
 source $VIMRUNTIME/macros/matchit.vim
 source $VIMRUNTIME/ftplugin/man.vim
+
+" ----- configure vim-latex -----
+let g:tex_flavor='latex'
+set sw=2
+" TIP: if you write your \label's as \label{fig:something}, then if you
+" type in \ref{fig: and press <C-n> you will automatically cycle through
+" all the figure labels. Very useful!
+set iskeyword+=:
+
 
 " ----- get plugins through vim-plug (cmd 'Plug')
 call plug#begin('~/.vim/plugged')

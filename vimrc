@@ -128,7 +128,7 @@ fun! TrimWhitespace()
     %s/\t/    /e
     call winrestview(l:save)
 endfun
-autocmd FileType c,cpp,matlab,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
+autocmd FileType c,cpp,markdown,matlab,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
 
 " configure vim to automatically remove trailing whitespace
 " autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested %s/\s\+$//e /+1; %s/\t/    /e

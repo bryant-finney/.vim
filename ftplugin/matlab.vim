@@ -1,1 +1,0 @@
-/home/bryant/.vim/plugged/vim-matlab/ftplugin/matlab.vim

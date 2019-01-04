@@ -1,1 +1,0 @@
-/home/bryant/.vim/plugged/vim-snippets/pythonx/javascript_snippets.py

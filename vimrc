@@ -128,17 +128,21 @@ fun! TrimWhitespace()
     %s/\t/    /e
     call winrestview(l:save)
 endfun
-autocmd FileType c,cpp,markdown,matlab,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
 
 " configure vim to automatically remove trailing whitespace
-" autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested %s/\s\+$//e /+1; %s/\t/    /e
-" configure vim to automatically replace tabs with four spaces on save
-" autocmd FileType c,cpp,matlab autocmd BufWritePre <buffer> nested %s/\t/    /e
+autocmd FileType c,cpp,markdown,matlab,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
+
+" tabs -> spaces on write (for python)
+autocmd FileType c,cpp,matlab,python autocmd BufWritePre <buffer> nested %s/\t/    /e
+
+" use the black autoformatter for python
+autocmd FileType python autocmd BufWritePre <buffer> nested :Black
 
 " set specifically for matlab, but probably generally useful:
 filetype indent on
 source $VIMRUNTIME/macros/matchit.vim
 source $VIMRUNTIME/ftplugin/man.vim
+
 
 " ----- configure vim-latex -----
 let g:tex_flavor='latex'
@@ -166,6 +170,9 @@ Plug 'https://github.com/SirVer/ultisnips.git'
 
 " Add vim-latex for editing LaTeX documents
 Plug 'https://github.com/vim-latex/vim-latex.git'
+
+" Add the Black plugin for python development
+Plug 'ambv/black'
 
 " ----- configure vim-matlab -----
 

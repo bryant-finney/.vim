@@ -99,8 +99,8 @@ vnoremap <S-Tab> <S-<>         " TODO: this really needs to be 'delete previous 
 " ----- general preferences -----
 set tabstop=4 shiftwidth=4 expandtab
 set nowrap
-set colorcolumn=89
-set textwidth=89
+set colorcolumn=87
+set textwidth=87
 set number
 set iskeyword-=_
 set autochdir

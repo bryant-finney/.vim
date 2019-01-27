@@ -8,6 +8,10 @@ for dir_name in $(find $HOME/.vim/plugged/vim-*/* -maxdepth 1 -type d -not -path
         if [ -f $dest ]; then
             echo "skipping $fname"
             continue
+        elif [[ "$dest" == *snippets* ]]; then
+            # skip the snippets to avoid duplicates
+            echo "skiping $fname"
+            continue
         fi
         echo "linking $fname to $dest" 
         ln -s $fname $dest   

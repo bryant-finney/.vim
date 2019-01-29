@@ -102,7 +102,7 @@ set nowrap
 set colorcolumn=87
 set textwidth=87
 set number
-set iskeyword-=_
+"set iskeyword-=_
 set autochdir
 set cursorline
 set whichwrap=b,s,[,]
@@ -174,6 +174,8 @@ Plug 'https://github.com/vim-latex/vim-latex.git'
 " Add the Black plugin for python development
 Plug 'ambv/black'
 
+" Add the Jedi plugin
+Plug 'davidhalter/jedi-vim'
 " ----- configure vim-matlab -----
 
 " generate links for each file (so that the plugin files are sourced

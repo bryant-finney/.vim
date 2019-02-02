@@ -1,5 +1,5 @@
-# link the matlab plugin's files to their appropriate locations
-for dir_name in $(find $HOME/.vim/plugged/vim-*/* -maxdepth 1 -type d -not -path '*/.git'); do 
+function link_files () {
+    dir_name="$1"
     if [ ! -d $HOME/.vim/$(basename $dir_name) ]; then
         mkdir $HOME/.vim/$(basename $dir_name)
     fi
@@ -17,4 +17,15 @@ for dir_name in $(find $HOME/.vim/plugged/vim-*/* -maxdepth 1 -type d -not -path
         ln -s $fname $dest   
     done
 done
+
+# link black's files
+for dir_name in $(find $HOME/.vim/plugged/black/* -maxdepth 1 -type d -not -path '*/.git'); do 
+    link_files "$dir_name"
+done
+
+# link ultisnips
+for dir_name in $(find $HOME/.vim/plugged/ultisnips/* -maxdepth 1 -type d -not -path '*/.git'); do 
+    link_files "$dir_name"
+done
+
 

@@ -16,7 +16,7 @@ function link_files () {
         echo "linking $fname to $dest" 
         ln -s $fname $dest   
     done
-done
+}
 
 # link black's files
 for dir_name in $(find $HOME/.vim/plugged/black/* -maxdepth 1 -type d -not -path '*/.git'); do 

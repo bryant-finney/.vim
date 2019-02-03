@@ -114,6 +114,7 @@ set preserveindent
 set pumheight=10
 set showmatch         " toggle showmatch to jump the cursor back to the opening bracket
 set hlsearch
+set guifont=Monospace\ 12   " font size was annoyingly small over ssh
 
 " configure autocompletion display options
 set wildmenu

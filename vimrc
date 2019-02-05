@@ -166,10 +166,10 @@ Plug 'https://github.com/honza/vim-snippets.git'
 Plug 'https://github.com/raingo/vim-matlab.git'
 
 " Add UltiSnips for template insertion
-Plug 'https://github.com/SirVer/ultisnips.git'
+Plug 'SirVer/ultisnips'
 
 " Add vim-latex for editing LaTeX documents
-Plug 'https://github.com/vim-latex/vim-latex.git'
+Plug 'vim-latex/vim-latex'
 
 " Add the Black plugin for python development
 Plug 'ambv/black'

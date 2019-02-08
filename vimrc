@@ -113,6 +113,8 @@ set pumheight=10
 set showmatch         " toggle showmatch to jump the cursor back to the opening bracket
 set hlsearch
 
+highlight ColorColumn ctermfg=7 ctermbg=248
+
 " configure autocompletion display options
 set wildmenu
 set wildmode=longest,full

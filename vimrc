@@ -105,7 +105,6 @@ set autochdir
 set cursorline
 set whichwrap=b,s,[,]
 set backspace=indent,eol,start
-set expandtab
 set smartindent
 set copyindent
 set preserveindent
@@ -189,3 +188,4 @@ autocmd BufEnter *.m compiler mlint
 
 call plug#end()
 
+set expandtab

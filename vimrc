@@ -10,26 +10,23 @@ nmap ; q:
 
 " map ctrl-delete functionality:
 nnoremap <C-Del> ved
-" and for the latptop's builtin keyboard
-" nnoremap <C-kDel> ved
 
 " map ctrl+shift+delete to delete to the end of the word (instad of moving to
 " the beginning of the next)
-nnoremap <C-S-Del> vEhd
-" nnoremap <C-S-kDel> vEhd                 " and the builtin keyboard
+nnoremap <C-S-Del> vEd
 
 " map ctrl+d to delete the current line
 nnoremap <C-D> :dl<Enter>
 
 " map ctrl+backspace to delete the previous word
-nnoremap <C-BS> vbd
+" nnoremap <C-BS> vbd
 
 " todo: mapping this on top of <C-BS> does strange things on the external
 " keyboard
 " nnoremap  vbd                         " and the builtin keyboard
 
 " map backspace to delete the previous characer
-nnoremap <BS> X
+" nnoremap <BS> X
 
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD
 " boundaries; supplement with ctrl+shift keys
@@ -39,7 +36,7 @@ nnoremap <C-S-Right> E
 nnoremap <C-S-Left> B
 
 " map shift tab to unindent
-nnoremap <S-Tab> v<S-<>         " TODO: this really needs to be 'delete previous spaces'
+nnoremap <S-Tab> v<S-<>
 
 
 " ----- preferences for insert mode -----
@@ -47,17 +44,16 @@ nnoremap <S-Tab> v<S-<>         " TODO: this really needs to be 'delete previous
 inoremap <C-D> <C-[>:dl<Enter>
 
 " map ctrl+backspace to delete to the beginning of the current word
-inoremap <C-S-BS> <C-[>vBdi
+" inoremap <C-S-BS> <C-[>vBdi
 
 " map ctrl+backspace to delete the previous word
 inoremap <C-BS> <C-W>
 
+" map ctrl+bs as ^H this on top of <C-BS> in order to add support outside of gvim
+inoremap  <C-W>
+
 " map ctrl+space to overload ctrl+n (for autocomplete)
 inoremap <C-Space> <C-P>
-
-" todo: mapping this on top of <C-BS> does strange things on the external
-" keyboard
-" inoremap  <C-W>                       " and the builtin keyboard
 
 " map ctrl+delete this causes the cursor to shift one place to the right when
 " deleting the first word on the line
@@ -83,6 +79,8 @@ inoremap <S-Tab> <C-[>v<S-<>
 
 " ----- preferences for command mode -----
 cmap <C-BS> <C-W>
+" legion is a desktop machine, so this is okay-ish:
+cmap  <C-W>
 
 " ----- preferences for visual mode -----
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD

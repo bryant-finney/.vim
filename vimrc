@@ -129,15 +129,15 @@ fun! TrimWhitespace()
 endfun
 
 " configure vim to automatically remove trailing whitespace
-autocmd FileType c,cpp,markdown,matlab,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
+autocmd FileType c,cpp,markdown,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
 
 " tabs -> spaces on write (for python)
-autocmd FileType c,cpp,matlab,python autocmd BufWritePre <buffer> nested %s/\t/    /e
+autocmd FileType c,cpp,python autocmd BufWritePre <buffer> nested %s/\t/    /e
 
 " use the black autoformatter for python
 autocmd FileType python autocmd BufWritePre <buffer> nested :Black
 
-" set specifically for matlab, but probably generally useful:
+" set originally for matlab, but probably generally useful:
 filetype indent on
 source $VIMRUNTIME/macros/matchit.vim
 source $VIMRUNTIME/ftplugin/man.vim
@@ -161,9 +161,6 @@ Plug 'https://github.com/junegunn/vim-plug.git'
 " Add vim-snippets to allow vim to insert templates with a hotkey
 Plug 'https://github.com/honza/vim-snippets.git'
 
-" Add vim-matlab (repo was created from MatLab File Exchange post)
-Plug 'https://github.com/raingo/vim-matlab.git'
-
 " Add UltiSnips for template insertion
 Plug 'SirVer/ultisnips'
 
@@ -175,16 +172,6 @@ Plug 'ambv/black'
 
 " Add the Jedi plugin
 Plug 'davidhalter/jedi-vim'
-" ----- configure vim-matlab -----
-
-" generate links for each file (so that the plugin files are sourced
-" !bash $HOME/.vim/create_links.sh
-
-" generate the help tags
-helptags $HOME/.vim/plugged/vim-matlab/doc
-
-" integrate the 'make' command (use mlint)
-autocmd BufEnter *.m compiler mlint
 
 call plug#end()
 

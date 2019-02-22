@@ -173,6 +173,9 @@ Plug 'ambv/black'
 " Add the Jedi plugin
 Plug 'davidhalter/jedi-vim'
 
+" Add the vim-surround plugin for surrounding with quotes, brackets, etc
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 set expandtab

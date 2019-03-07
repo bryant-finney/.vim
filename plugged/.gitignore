@@ -2,7 +2,7 @@ black
 jedi-vim
 ultisnips
 vim-latex
-vim-matlab
 vim-plug
+vim-shfmt
 vim-snippets
 vim-surround

@@ -179,6 +179,9 @@ Plug 'davidhalter/jedi-vim'
 " Add the vim-surround plugin for surrounding with quotes, brackets, etc
 Plug 'tpope/vim-surround'
 
+" Add plugin for formatting and error checking shell scripts
+Plug '42wim/vim-shfmt'
+
 call plug#end()
 
 set expandtab

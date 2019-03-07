@@ -104,8 +104,16 @@ snippet fun
 	function ${1:function_name}() {
 		${0:#function_body}
 	}
-snippet docs "script header docs"
-	# file:     `expand('%:t')` 
-	# created:  `strftime("%Y-%m-%d %H:%M")`
-	# author:   Bryant Finney <bryant@outdoorlinkinc.com>
+snippet docs header docs for script
+	## ---------------------------------------------------
+	## file:     `expand('%:t')` 
+	## created:  `strftime("%Y-%m-%d %H:%M")`
+	## author:   Bryant Finney <bryant@outdoorlinkinc.com>
+	## 
+	## description:
+	##   ${0:TODO}
+	##
+	## usage:
+	##   ${1:TODO}
+	## ---------------------------------------------------
 

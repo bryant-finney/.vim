@@ -113,6 +113,7 @@ set showmatch         " toggle showmatch to jump the cursor back to the opening 
 set hlsearch
 
 highlight ColorColumn ctermfg=7 ctermbg=248
+highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
 
 " configure autocompletion display options
 set wildmenu
@@ -181,6 +182,9 @@ Plug 'tpope/vim-surround'
 
 " Add plugin for formatting and error checking shell scripts
 Plug '42wim/vim-shfmt'
+
+" Add plugin for performing static analysis + style checks with flake8
+Plug 'nvie/vim-flake8'
 
 call plug#end()
 

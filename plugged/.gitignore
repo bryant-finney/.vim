@@ -7,3 +7,4 @@ vim-plug
 vim-shfmt
 vim-snippets
 vim-surround
+ale

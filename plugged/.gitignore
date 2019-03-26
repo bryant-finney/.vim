@@ -8,3 +8,4 @@ vim-shfmt
 vim-snippets
 vim-surround
 ale
+vim-json

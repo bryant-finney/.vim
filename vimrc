@@ -155,22 +155,29 @@ source $VIMRUNTIME/macros/matchit.vim
 source $VIMRUNTIME/ftplugin/man.vim
 
 " configure ALE
-let g:ale_completion_enabled = 1
-let g:ale_keep_list_window_open = 1
-let g:ale_lint_on_insert_leave = 1
-" let g:ale_linters = {'python': ['flake8', 'pydocstyle']}
-let g:ale_open_list = 1
 "let g:ale_python_flake8_autopipenv = 1
 "let g:ale_python_mypy_auto_pipenv = 1
 "let g:ale_python_pylint_auto_pipenv = 1
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+let g:ale_keep_list_window_open = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_linters = {'python': ['flake8', 'pydocstyle', 'mypy', 'bandit']}
+let g:ale_open_list = 1
 let g:ale_set_highlights = 1
 let g:ale_set_loclist = 1
-" let g:ale_set_quickfix = 1
+let g:ale_set_quickfix = 1
+
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['add_blank_lines_for_python_control_statements',
 \              'black', 'isort', 'yapf', 'autopep8']
 \}
+
+" configure vim-surround
+let g:surround_40 = "(\r)"
+let g:surround_91 = "[\r]"
+let g:surround_123 = "{\r}"
 
 " for future expansion:
 let g:airline#extensions#ale#enabled = 1
@@ -216,6 +223,9 @@ Plug '42wim/vim-shfmt'
 
 " Add plugin for checking docstrings with pydocstyle
 Plug 'w0rp/ale'
+
+" Add a json formatter plugin
+Plug 'elzr/vim-json'
 
 call plug#end()
 

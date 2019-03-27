@@ -132,10 +132,14 @@ fun! TrimWhitespace()
 endfun
 
 " configure vim to automatically remove trailing whitespace
-" autocmd FileType c,cpp,markdown,python,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
+autocmd FileType c,cpp,markdown,tex,vim autocmd BufWritePre <buffer> nested :call TrimWhitespace()
 
 " tabs -> spaces on write (for python)
 autocmd FileType c,cpp,python autocmd BufWritePre <buffer> nested %s/\t/    /e
+
+" configure vim to automatically format json text on write
+com! FormatJSON %!python -m json.tool
+autocmd FileType json autocmd BufWritePre <buffer> nested :FormatJSON
 
 " use the black autoformatter for python
 "   update 2019-03-18 11:25: ALE should autmatically call black

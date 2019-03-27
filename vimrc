@@ -111,6 +111,8 @@ set preserveindent
 set pumheight=10
 set showmatch         " toggle showmatch to jump the cursor back to the opening bracket
 set hlsearch
+set conceallevel=2
+
 
 highlight ColorColumn ctermfg=7 ctermbg=248
 highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
@@ -162,7 +164,10 @@ let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_keep_list_window_open = 1
 let g:ale_lint_on_insert_leave = 1
-let g:ale_linters = {'python': ['flake8', 'pydocstyle', 'mypy', 'bandit']}
+let g:ale_linters = {
+\   'markdown': ['markdownlint', 'proselint'],
+\   'python': ['flake8', 'pydocstyle', 'mypy', 'bandit'],
+\}
 let g:ale_open_list = 1
 let g:ale_set_highlights = 1
 let g:ale_set_loclist = 1
@@ -170,6 +175,7 @@ let g:ale_set_quickfix = 1
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'markdown': ['prettier'],
 \   'python': ['add_blank_lines_for_python_control_statements',
 \              'black', 'isort', 'yapf', 'autopep8']
 \}
@@ -178,6 +184,10 @@ let g:ale_fixers = {
 let g:surround_40 = "(\r)"
 let g:surround_91 = "[\r]"
 let g:surround_123 = "{\r}"
+
+" configure vim-markdown
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_conceal = 1
 
 " for future expansion:
 let g:airline#extensions#ale#enabled = 1
@@ -226,6 +236,15 @@ Plug 'w0rp/ale'
 
 " Add a json formatter plugin
 Plug 'elzr/vim-json'
+
+" Add Tabular (dependency of vim-markdown)
+Plug 'godlygeek/tabular'
+
+" Add a markdown style checker/formatter
+Plug 'plasticboy/vim-markdown'
+
+" Add plugin to auto close parens/braces/brackets/quotes
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 

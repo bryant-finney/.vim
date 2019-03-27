@@ -1,11 +1,14 @@
+ale
+auto-pairs
 black
 jedi-vim
+tabular
 ultisnips
 vim-flake8
+vim-json
 vim-latex
+vim-markdown
 vim-plug
 vim-shfmt
 vim-snippets
 vim-surround
-ale
-vim-json

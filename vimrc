@@ -113,13 +113,14 @@ set showmatch         " toggle showmatch to jump the cursor back to the opening 
 set hlsearch
 set conceallevel=2
 
-
 highlight ColorColumn ctermfg=7 ctermbg=248
 highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
 
 " configure autocompletion display options
 set wildmenu
 set wildmode=longest,full
+
+colorscheme evening
 
 " define a function (called on :w) to remove trailing spaces and to replace
 " tab characters with four spaces

@@ -95,32 +95,29 @@ vnoremap <S-Tab> <S-<>         " TODO: this really needs to be 'delete previous 
 
 
 " ----- general preferences -----
-set tabstop=4 shiftwidth=4 expandtab
-set nowrap
-set colorcolumn=87
-set textwidth=87
-set number
+" colorscheme comes first
+colorscheme slate
+
 "set iskeyword-=_
 set autochdir
-set cursorline
-set whichwrap=b,s,[,]
 set backspace=indent,eol,start
-set smartindent
+set colorcolumn=87
+set conceallevel=2
 set copyindent
+set cursorline
+set hlsearch
+set nowrap
+set number
 set preserveindent
 set pumheight=10
 set showmatch         " toggle showmatch to jump the cursor back to the opening bracket
-set hlsearch
-set conceallevel=2
-
-highlight ColorColumn ctermfg=7 ctermbg=248
-highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
-
+set smartindent
+set tabstop=4 shiftwidth=4 expandtab
+set textwidth=87
+set whichwrap=b,s,[,]
 " configure autocompletion display options
 set wildmenu
 set wildmode=longest,full
-
-colorscheme evening
 
 " define a function (called on :w) to remove trailing spaces and to replace
 " tab characters with four spaces
@@ -253,6 +250,25 @@ Plug 'plasticboy/vim-markdown'
 " Add plugin to auto close parens/braces/brackets/quotes
 Plug 'jiangmiao/auto-pairs'
 
+" Add plugin for highlighting python comparison operators
+Plug 'vim-python/python-syntax'
+
 call plug#end()
 
 set expandtab
+
+
+" ----- pretty colors -----
+let g:python_highlight_all = 1
+
+highlight Comment ctermfg=gray guifg=darkgray
+
+highlight link pythonDocstring pythonComment
+highlight link pythonOperator pythonStatement
+
+highlight ColorColumn ctermbg=LightGray guibg=gray20
+highlight CursorLine guibg=gray20 ctermbg=black
+highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
+highlight Function guifg=darkgoldenrod
+highlight Include gui=bold cterm=bold ctermfg=5 guifg=plum3
+highlight String gui=italic guifg=Turquoise4

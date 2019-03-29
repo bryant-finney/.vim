@@ -162,9 +162,11 @@ source $VIMRUNTIME/macros/matchit.vim
 source $VIMRUNTIME/ftplugin/man.vim
 
 " configure ALE
-"let g:ale_python_flake8_autopipenv = 1
-"let g:ale_python_mypy_auto_pipenv = 1
-"let g:ale_python_pylint_auto_pipenv = 1
+let g:ale_python_flake8_autopipenv = 1
+let g:ale_python_mypy_auto_pipenv = 1
+let g:ale_python_pylint_auto_pipenv = 1
+let g:ale_python_bandit_auto_pipenv = 1
+let g:ale_python_pydocstyle_auto_pipenv = 1
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_keep_list_window_open = 1
@@ -182,7 +184,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'markdown': ['prettier'],
 \   'python': ['add_blank_lines_for_python_control_statements',
-\              'black', 'isort', 'yapf', 'autopep8']
+\              'black', 'isort', 'autopep8']
 \}
 
 " configure vim-surround

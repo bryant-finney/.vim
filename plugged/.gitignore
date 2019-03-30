@@ -2,6 +2,7 @@ ale
 auto-pairs
 black
 jedi-vim
+semshi
 tabular
 ultisnips
 vim-flake8

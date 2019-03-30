@@ -38,6 +38,12 @@ nnoremap <C-S-Left> B
 " map shift tab to unindent
 nnoremap <S-Tab> v<S-<>
 
+" map tab and shift+tab to jump to the next occurence using shemshi
+nnoremap <Tab> :Semshi goto name next<CR>
+nnoremap <S-Tab> :Semshi goto name prev<CR>
+
+" map 'rr' to replace a node using Semshi
+nnoremap rr :Semshi rename<CR>
 
 " ----- preferences for insert mode -----
 " map ctrl+d to delete the current line
@@ -250,8 +256,8 @@ Plug 'plasticboy/vim-markdown'
 " Add plugin to auto close parens/braces/brackets/quotes
 Plug 'jiangmiao/auto-pairs'
 
-" Add plugin for highlighting python comparison operators
-Plug 'vim-python/python-syntax'
+" Add plugin for better python syntax highlighting
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
@@ -259,16 +265,23 @@ set expandtab
 
 
 " ----- pretty colors -----
-let g:python_highlight_all = 1
+func! PrettyColors()
+    highlight Comment ctermfg=gray guifg=darkgray
 
-highlight Comment ctermfg=gray guifg=darkgray
+    highlight link pythonDocstring pythonComment
+    highlight link pythonOperator pythonStatement
 
-highlight link pythonDocstring pythonComment
-highlight link pythonOperator pythonStatement
+    highlight ColorColumn ctermbg=LightGray guibg=gray20
+    highlight CursorLine guibg=gray20 ctermbg=black
+    highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
+    highlight Function guifg=darkgoldenrod
+    highlight Include gui=bold cterm=bold ctermfg=5 guifg=plum3
+    highlight String gui=italic guifg=Turquoise4
 
-highlight ColorColumn ctermbg=LightGray guibg=gray20
-highlight CursorLine guibg=gray20 ctermbg=black
-highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
-highlight Function guifg=darkgoldenrod
-highlight Include gui=bold cterm=bold ctermfg=5 guifg=plum3
-highlight String gui=italic guifg=Turquoise4
+    highlight semshiSelected gui=underline cterm=underline ctermbg=LightGray ctermfg=NONE guibg=gray30 guifg=NONE
+    highlight semshiImported gui=bold cterm=bold guifg=darkgoldenrod ctermfg=214
+    highlight semshiImported guifg=darkgoldenrod ctermfg=214
+
+endfun
+
+autocmd FileType python,vim,sh,markdown call PrettyColors()

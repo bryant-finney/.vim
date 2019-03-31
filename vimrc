@@ -281,6 +281,7 @@ func! PrettyColors()
     highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
     highlight Function guifg=darkgoldenrod
     highlight Include gui=bold cterm=bold ctermfg=5 guifg=plum3
+    highlight LineNr ctermfg=LightGray guifg=gray50
     highlight String gui=italic guifg=Turquoise4
 
     highlight semshiSelected gui=underline cterm=underline ctermbg=LightGray ctermfg=NONE guibg=gray30 guifg=NONE
@@ -289,4 +290,11 @@ func! PrettyColors()
 
 endfun
 
-autocmd FileType python,vim,sh,markdown call PrettyColors()
+fun! GitPrettyColors()
+    call PrettyColors()
+    highlight Constant ctermfg=69 guifg=CornFlowerBlue
+    highlight PreProc cterm=bold gui=bold ctermfg=255 guifg=Grey93
+endfun
+
+autocmd FileType git,markdown,python,sh,vim call PrettyColors()
+autocmd FileType gitcommit call GitPrettyColors()

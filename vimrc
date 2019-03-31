@@ -294,7 +294,9 @@ fun! GitPrettyColors()
     call PrettyColors()
     highlight Constant ctermfg=69 guifg=CornFlowerBlue
     highlight PreProc cterm=bold gui=bold ctermfg=255 guifg=Grey93
+    highlight Identifier cterm=bold gui=bold ctermfg=11 guifg=gold
+    highlight gitHead cterm=bold gui=bold ctermfg=14 guifg=cyan
 endfun
 
-autocmd FileType git,markdown,python,sh,vim call PrettyColors()
-autocmd FileType gitcommit call GitPrettyColors()
+autocmd FileType markdown,python,sh,vim call PrettyColors()
+autocmd FileType git,gitcommit call GitPrettyColors()

@@ -114,6 +114,7 @@ set colorcolumn=87
 set conceallevel=2
 set copyindent
 set cursorline
+set cursorcolumn
 set hlsearch
 set nowrap
 set number
@@ -278,6 +279,7 @@ func! PrettyColors()
 
     highlight ColorColumn ctermbg=LightGray guibg=gray20
     highlight CursorLine guibg=gray20 ctermbg=black
+    highlight CursorColumn guibg=gray20 ctermbg=black
     highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
     highlight Function guifg=darkgoldenrod
     highlight Include gui=bold cterm=bold ctermfg=5 guifg=plum3
@@ -287,7 +289,6 @@ func! PrettyColors()
     highlight semshiSelected gui=underline cterm=underline ctermbg=LightGray ctermfg=NONE guibg=gray30 guifg=NONE
     highlight semshiImported gui=bold cterm=bold guifg=darkgoldenrod ctermfg=214
     highlight semshiImported guifg=darkgoldenrod ctermfg=214
-
 endfun
 
 fun! GitPrettyColors()
@@ -298,5 +299,14 @@ fun! GitPrettyColors()
     highlight gitHead cterm=bold gui=bold ctermfg=14 guifg=cyan
 endfun
 
-autocmd FileType markdown,python,sh,vim call PrettyColors()
+fun TodoPrettyColors()
+    syntax match MyTodo contained "\v.*todo|TODO.*"
+    highlight link MyTodo Todo
+endf
+
+call PrettyColors()
+call TodoPrettyColors()
+
+autocmd FileType markdown,python,sh,vim call PrettyColors()|:call TodoPrettyColors()
+autocmd FileType markdown,python,sh,vim call TodoPrettyColors()
 autocmd FileType git,gitcommit call GitPrettyColors()

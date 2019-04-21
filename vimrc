@@ -108,7 +108,7 @@ vnoremap <S-Tab> <S-<>         " TODO: this really needs to be 'delete previous 
 colorscheme slate
 
 "set iskeyword-=_
-set autochdir
+set noautochdir
 set backspace=indent,eol,start
 set colorcolumn=87
 set conceallevel=2
@@ -277,10 +277,11 @@ func! PrettyColors()
     highlight link pythonDocstring pythonComment
     highlight link pythonOperator pythonStatement
 
-    highlight ColorColumn ctermbg=LightGray guibg=gray20
+    highlight ColorColumn ctermbg=Black guibg=gray20
     highlight CursorLine guibg=gray20 ctermbg=black
     highlight CursorColumn guibg=gray20 ctermbg=black
-    highlight DiffText cterm=bold ctermbg=11 gui=bold guibg=LightGray
+    highlight DiffText cterm=bold ctermbg=7 gui=bold guibg=LightGray
+    highlight Search ctermfg=248 ctermbg=10 guifg=wheat guibg=peru
     highlight Function guifg=darkgoldenrod
     highlight Include gui=bold cterm=bold ctermfg=5 guifg=plum3
     highlight LineNr ctermfg=LightGray guifg=gray50

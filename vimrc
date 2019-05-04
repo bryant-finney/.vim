@@ -36,10 +36,10 @@ nnoremap <C-S-Right> E
 nnoremap <C-S-Left> B
 
 " map split transitions for when operating remotely from Windows
-nnoremap wh <C-W><C-H>
-nnoremap wj <C-W><C-j>
-nnoremap wl <C-W><C-l>
-nnoremap wk <C-W><C-K>
+nnoremap Wh <C-W><C-H>
+nnoremap Wj <C-W><C-j>
+nnoremap Wl <C-W><C-l>
+nnoremap Wk <C-W><C-K>
 
 " map shift tab to unindent
 nnoremap <S-Tab> v<S-<>

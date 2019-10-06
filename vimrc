@@ -180,14 +180,17 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'markdown': ['prettier'],
-\   'python': ['add_blank_lines_for_python_control_statements',
-\              'black', 'isort', 'autopep8']
+\   'python': ['black', 'isort', 'autopep8']
 \}
 let g:ale_lint_on_insert_leave = 1
 " mypy is firing a 'No library stub' error
+"let g:ale_linters = {
+"\   'markdown': ['markdownlint', 'proselint'],
+"\   'python': ['flake8', 'pydocstyle', 'mypy', 'bandit'],
+"\}
 let g:ale_linters = {
 \   'markdown': ['markdownlint', 'proselint'],
-\   'python': ['flake8', 'pydocstyle', 'mypy', 'bandit'],
+\   'python': ['flake8'],
 \}
 let g:ale_list_window_size = 5
 let g:ale_open_list = 1

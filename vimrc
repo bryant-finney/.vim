@@ -277,6 +277,9 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Add plugin for taking notes using RST
 Plug 'gu-fan/riv.vim'
 
+" Highlight changes in the gutter
+Plug 'airblade/vim-gitgutter'
+
 call plug#end()
 
 set expandtab

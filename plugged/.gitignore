@@ -6,6 +6,7 @@ semshi
 tabular
 ultisnips
 vim-flake8
+vim-gitgutter
 vim-json
 vim-latex
 vim-markdown

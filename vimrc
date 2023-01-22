@@ -54,6 +54,9 @@ nnoremap rr :Semshi rename<CR>
 nnoremap AJ :ALENext<CR>
 nnoremap AK :ALEPrevious<CR>
 
+" Open vimagit pane
+nnoremap gs :Magit<CR>       " git status
+
 " ----- preferences for insert mode -----
 " map ctrl+d to delete the current line
 inoremap <C-D> <C-[>:dl<Enter>
@@ -279,6 +282,9 @@ Plug 'gu-fan/riv.vim'
 
 " Highlight changes in the gutter
 Plug 'airblade/vim-gitgutter'
+
+" Create a pain for showing file diffs
+Plug 'jreybert/vimagit'
 
 call plug#end()
 

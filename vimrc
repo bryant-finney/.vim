@@ -239,7 +239,7 @@ Plug 'https://github.com/junegunn/vim-plug.git'
 Plug 'https://github.com/honza/vim-snippets.git'
 
 " Add UltiSnips for template insertion
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 
 " Add vim-latex for editing LaTeX documents
 Plug 'vim-latex/vim-latex'

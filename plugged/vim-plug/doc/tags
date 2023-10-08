@@ -1,4 +1,5 @@
 :GoInstallBinaries	plug.txt	/*:GoInstallBinaries*
+:Plug	plug.txt	/*:Plug*
 :PlugDiff	plug.txt	/*:PlugDiff*
 :PlugInstall	plug.txt	/*:PlugInstall*
 :PlugStatus	plug.txt	/*:PlugStatus*
@@ -14,6 +15,7 @@ plug	plug.txt	/*plug*
 plug#begin	plug.txt	/*plug#begin*
 plug#end	plug.txt	/*plug#end*
 plug-articles	plug.txt	/*plug-articles*
+plug-collaborators	plug.txt	/*plug-collaborators*
 plug-commands	plug.txt	/*plug-commands*
 plug-example	plug.txt	/*plug-example*
 plug-example-a-small-sensible-vim-configuration	plug.txt	/*plug-example-a-small-sensible-vim-configuration*

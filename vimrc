@@ -245,7 +245,7 @@ Plug 'https://github.com/honza/vim-snippets.git'
 Plug 'vim-latex/vim-latex'
 
 " Add the Black plugin for python development
-Plug 'ambv/black'
+Plug 'psf/black', { 'branch': 'stable' }
 
 " Add the Jedi plugin
 Plug 'davidhalter/jedi-vim'

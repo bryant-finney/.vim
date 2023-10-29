@@ -177,6 +177,8 @@ filetype indent on
 source $VIMRUNTIME/macros/matchit.vim
 source $VIMRUNTIME/ftplugin/man.vim
 
+let g:python3_host_prog = "python3.11"
+
 " configure ALE
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1

@@ -283,7 +283,7 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'gu-fan/riv.vim'
 
 " Highlight changes in the gutter
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', {'branch': 'main'}
 
 " Create a pain for showing file diffs
 Plug 'jreybert/vimagit'

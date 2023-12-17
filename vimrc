@@ -177,7 +177,7 @@ filetype indent on
 source $VIMRUNTIME/macros/matchit.vim
 source $VIMRUNTIME/ftplugin/man.vim
 
-let g:python3_host_prog = "python3.11"
+let g:python3_host_prog = "python3"
 
 " configure ALE
 let g:ale_completion_enabled = 1
@@ -287,6 +287,8 @@ Plug 'airblade/vim-gitgutter', {'branch': 'main'}
 
 " Create a pain for showing file diffs
 Plug 'jreybert/vimagit'
+
+Plug 'github/copilot.vim'
 
 call plug#end()
 

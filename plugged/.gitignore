@@ -1,11 +1,12 @@
 ale
 auto-pairs
 black
+copilot.vim
 jedi-vim
+riv.vim
 semshi
 tabular
 ultisnips
-vimagit
 vim-flake8
 vim-gitgutter
 vim-json
@@ -15,4 +16,4 @@ vim-plug
 vim-shfmt
 vim-snippets
 vim-surround
-riv.vim
+vimagit

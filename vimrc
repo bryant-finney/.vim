@@ -290,6 +290,9 @@ Plug 'jreybert/vimagit'
 
 Plug 'github/copilot.vim'
 
+" support multiple cursors
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 call plug#end()
 
 set expandtab

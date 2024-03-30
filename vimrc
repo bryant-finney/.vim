@@ -45,7 +45,6 @@ nnoremap Wk <C-W><C-K>
 nnoremap <S-Tab> v<S-<>
 
 " map tab and shift+tab to jump to the next occurence using shemshi
-nnoremap <Tab> :Semshi goto name next<CR>
 nnoremap <S-Tab> :Semshi goto name prev<CR>
 
 " map 'rr' to replace a node using Semshi

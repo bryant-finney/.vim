@@ -221,6 +221,11 @@ let g:vim_markdown_conceal = 1
 " for future expansion:
 let g:airline#extensions#ale#enabled = 1
 
+" ----- configure deoplete -----
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+let g:deoplete#enable_at_startup = 1
+
 " ----- configure vim-latex -----
 let g:tex_flavor = 'latex'
 set sw=2
@@ -291,6 +296,24 @@ Plug 'github/copilot.vim'
 
 " support multiple cursors
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" automatically generate tags for source files
+Plug 'ludovicchabant/vim-gutentags'
+
+" terraform linting and completion
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'neomake/neomake'
+Plug 'preservim/tagbar'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 

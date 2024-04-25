@@ -298,7 +298,8 @@ Plug 'github/copilot.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " automatically generate tags for source files
-Plug 'ludovicchabant/vim-gutentags'
+" TODO: stopped working on WSL
+" Plug 'ludovicchabant/vim-gutentags'
 
 " terraform linting and completion
 Plug 'hashivim/vim-terraform'

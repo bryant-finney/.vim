@@ -183,8 +183,9 @@ let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'graphql': ['prettier'],
 \   'markdown': ['prettier'],
-\   'python': ['black', 'isort', 'autopep8']
+\   'python': ['ruff']
 \}
 let g:ale_lint_on_insert_leave = 1
 " mypy is firing a 'No library stub' error
@@ -194,7 +195,7 @@ let g:ale_lint_on_insert_leave = 1
 "\}
 let g:ale_linters = {
 \   'markdown': ['markdownlint', 'proselint'],
-\   'python': ['flake8'],
+\   'python': ['ruff'],
 \}
 let g:ale_list_window_size = 5
 let g:ale_open_list = 1
@@ -315,6 +316,8 @@ else
 endif
 
 let g:deoplete#enable_at_startup = 1
+
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 

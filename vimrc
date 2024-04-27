@@ -7,6 +7,29 @@ nnoremap ;; ;
 " map semicolon to 'q:'
 nmap ; q:
 
+" move a line down using alt/cmd + shift + j
+nnoremap <S-D-J> :m+<CR>
+
+" move a line up using alt/cmd + shift + k
+nnoremap <S-D-K> :m-2<CR>
+
+" copy a line down using ctrl + alt/cmd + shift + j
+nnoremap <C-S-D-J> :t.<CR>
+
+" copy a line up using ctrl + alt/cmd + shift + k
+nnoremap <C-S-D-K> :t-<CR>
+
+" delete to the beginning of a line using alt/cmd + backspace
+nnoremap <D-BS> v^d
+
+" undo with alt/cmd + z
+nnoremap <D-z> u
+
+" redo with alt/cmd + shift z
+nnoremap <S-D-z> <C-R>
+
+" write with alt/cmd + s
+nnoremap <D-s> :w<CR>
 
 " map ctrl-delete functionality:
 nnoremap <C-Del> ved
@@ -19,14 +42,15 @@ nnoremap <C-S-Del> vEd
 nnoremap <C-D> :dl<Enter>
 
 " map ctrl+backspace to delete the previous word
-" nnoremap <C-BS> vbd
+nnoremap <C-BS> vbd
+nnoremap <M-BS> vbd
 
 " todo: mapping this on top of <C-BS> does strange things on the external
 " keyboard
 " nnoremap  vbd                         " and the builtin keyboard
 
 " map backspace to delete the previous characer
-" nnoremap <BS> X
+noremap <BS> X
 
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD
 " boundaries; supplement with ctrl+shift keys
@@ -63,8 +87,30 @@ inoremap <C-D> <C-[>:dl<Enter>
 " map ctrl+backspace to delete to the beginning of the current word
 " inoremap <C-S-BS> <C-[>vBdi
 
+" move a line down using alt/cmd + j
+inoremap <S-D-J> <C-[>:m+<CR>a
+
+" move a line up using alt/cmd + k
+inoremap <S-D-K> <C-[>:m-2<CR>a
+
+" copy a line down using ctrl + alt/cmd + shift + j
+inoremap <C-S-D-J> <C-[>:t.<CR>a
+
+" copy a line up using ctrl + alt/cmd + shift + k
+inoremap <C-S-D-K> <C-[>:t.<CR>a
+
+" delete to the beginning of a line using alt/cmd + backspace
+inoremap <D-BS> <C-[>v^di
+
+" undo with alt/cmd + z
+inoremap <D-z> <C-[>u
+
+" redo with alt/cmd + shift z
+inoremap <S-D-z> <C-[><C-r>
+
 " map ctrl+backspace to delete the previous word
 inoremap <C-BS> <C-W>
+inoremap <M-BS> <C-W>
 
 " map ctrl+bs as ^H this on top of <C-BS> in order to add support outside of gvim
 inoremap  <C-W>
@@ -365,3 +411,5 @@ call TodoPrettyColors()
 autocmd FileType markdown,python,sh,vim call PrettyColors()|:call TodoPrettyColors()
 autocmd FileType markdown,python,sh,vim call TodoPrettyColors()
 autocmd FileType git,gitcommit call GitPrettyColors()
+
+command Reload source $MYVIMRC

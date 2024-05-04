@@ -59,11 +59,25 @@ nnoremap <C-Left> b
 nnoremap <C-S-Right> E
 nnoremap <C-S-Left> B
 
+" alt / cmd + left and alt / cmd + right to move to the beginning and end of the line
+nnoremap <D-Right> $
+nnoremap <D-Left> 0
+
+" cmd + up and cmd + down to move to the beginning and end of the file
+nnoremap <D-Up> gg^
+nnoremap <D-Down> G$
+
 " map split transitions for when operating remotely from Windows
 nnoremap Wh <C-W><C-H>
 nnoremap Wj <C-W><C-j>
 nnoremap Wl <C-W><C-l>
 nnoremap Wk <C-W><C-K>
+
+" move windows (splits) around
+nnoremap WH <C-W>H
+nnoremap WJ <C-W>J
+nnoremap WL <C-W>L
+nnoremap WK <C-W>K
 
 " map shift tab to unindent
 nnoremap <S-Tab> v<S-<>
@@ -139,6 +153,17 @@ inoremap <C-S-Left> <C-[>Bi
 " map shift tab to unindent
 inoremap <S-Tab> <C-[>v<S-<>
 
+" alt / cmd + left and alt / cmd + right to move to the beginning and end of the line
+inoremap <D-Right> <C-[>$a
+inoremap <M-Right> <C-[>$a
+inoremap <D-Left> <C-[>0i
+inoremap <M-Left> <C-[>0i
+
+" alt / cmd + up and alt / cmd + down to move to the beginning and end of the file
+inoremap <D-Up> <C-[>gg^i
+inoremap <M-Up> <C-[>gg^i
+inoremap <D-Down> <C-[>G$a
+inoremap <M-Down> <C-[>G$a
 
 " ----- preferences for command mode -----
 cmap <C-BS> <C-W>
@@ -153,6 +178,12 @@ vnoremap <C-Left> b
 vnoremap <C-S-Right> Eh
 vnoremap <C-S-Left> B
 
+" move a line down using alt/cmd + shift + j
+vnoremap <S-D-J> :m'>+<CR>gv=gv
+
+" move a line up using alt/cmd + shift + k
+vnoremap <S-D-K> :m-2<CR>gv=gv
+
 " map shift tab to unindent
 vnoremap <S-Tab> <S-<>         " TODO: this really needs to be 'delete previous spaces'
 
@@ -160,6 +191,9 @@ vnoremap <S-Tab> <S-<>         " TODO: this really needs to be 'delete previous 
 " ----- general preferences -----
 " colorscheme comes first
 colorscheme slate
+
+" make the background color transparent
+hi Normal guibg=NONE ctermbg=NONE
 
 "set iskeyword-=_
 set noautochdir
@@ -231,6 +265,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'graphql': ['prettier'],
 \   'markdown': ['prettier'],
+\   'toml': ['prettier'],
 \   'python': ['ruff']
 \}
 let g:ale_lint_on_insert_leave = 1

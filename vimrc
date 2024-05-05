@@ -94,6 +94,30 @@ nnoremap AK :ALEPrevious<CR>
 " Open vimagit pane
 nnoremap gs :Magit<CR>       " git status
 
+func! Indent(ind)
+  " change the indentation of the current line while maintaining the relative position
+  "     of the cursor
+  " ref: https://vi.stackexchange.com/a/18340
+  if &sol
+    set nostartofline
+  endif
+  let vcol = virtcol('.')
+  if a:ind
+    norm! >>
+    exe "norm!". (vcol + shiftwidth()) . '|'
+  else
+    norm! <<
+    exe "norm!". (vcol - shiftwidth()) . '|'
+  endif
+endfunc
+
+nnoremap >> :call Indent(1)<CR>
+nnoremap << :call Indent(0)<CR>
+
+" use cmd + ] and cmd + [ to indent / dedent with the custom indent function
+nnoremap <D-]> :call Indent(1)<CR>
+nnoremap <D-[> :call Indent(0)<CR>
+
 " ----- preferences for insert mode -----
 " map ctrl+d to delete the current line
 inoremap <C-D> <C-[>:dl<Enter>
@@ -165,6 +189,10 @@ inoremap <M-Up> <C-[>gg^i
 inoremap <D-Down> <C-[>G$a
 inoremap <M-Down> <C-[>G$a
 
+" use cmd + ] and cmd + [ to indent / dedent with the custom indent function
+inoremap <D-]> <C-[>:call Indent(1)<CR>a
+inoremap <D-[> <C-[>:call Indent(0)<CR>a
+
 " ----- preferences for command mode -----
 cmap <C-BS> <C-W>
 " legion is a desktop machine, so this is okay-ish:
@@ -184,9 +212,13 @@ vnoremap <S-D-J> :m'>+<CR>gv=gv
 " move a line up using alt/cmd + shift + k
 vnoremap <S-D-K> :m-2<CR>gv=gv
 
-" map shift tab to unindent
-vnoremap <S-Tab> <S-<>         " TODO: this really needs to be 'delete previous spaces'
+" use cmd + ] and cmd + [ to indent / dedent with the custom indent function
+vnoremap <D-]> :call Indent(1)<CR>
+vnoremap <D-[> :call Indent(0)<CR>
 
+" alt / cmd + left and alt / cmd + right to move to the beginning and end of the line
+vnoremap <D-Right> $
+vnoremap <D-Left> 0
 
 " ----- general preferences -----
 " colorscheme comes first
@@ -266,7 +298,7 @@ let g:ale_fixers = {
 \   'graphql': ['prettier'],
 \   'markdown': ['prettier'],
 \   'toml': ['prettier'],
-\   'python': ['ruff']
+\   'python': ['ruff', 'ruff_format']
 \}
 let g:ale_lint_on_insert_leave = 1
 " mypy is firing a 'No library stub' error
@@ -290,6 +322,8 @@ let g:ale_set_highlights = 1
 let g:ale_set_loclist = 1
 "let g:ale_set_quickfix = 1
 let g:ale_virtualtext_cursor = 1
+
+let g:ale_terraform_checkov_options = '--config-file etc/checkov.yaml'
 
 " configure vim-surround
 let g:surround_40 = "(\r)"

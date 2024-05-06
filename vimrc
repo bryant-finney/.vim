@@ -9,18 +9,23 @@ nmap ; q:
 
 " move a line down using alt/cmd + shift + j
 nnoremap <S-D-J> :m+<CR>
+nnoremap <M-J> :m+<CR>
 
 " move a line up using alt/cmd + shift + k
 nnoremap <S-D-K> :m-2<CR>
+nnoremap <M-K> :m-2<CR>
 
 " copy a line down using ctrl + alt/cmd + shift + j
 nnoremap <C-S-D-J> :t.<CR>
+nnoremap <M-NL> :t.<CR>
 
 " copy a line up using ctrl + alt/cmd + shift + k
 nnoremap <C-S-D-K> :t-<CR>
+nnoremap <M-C-K> :t-<CR>
 
 " delete to the beginning of a line using alt/cmd + backspace
 nnoremap <D-BS> v^d
+nnoremap <M-BS> v^d
 
 " undo with alt/cmd + z
 nnoremap <D-z> u
@@ -30,6 +35,7 @@ nnoremap <S-D-z> <C-R>
 
 " write with alt/cmd + s
 nnoremap <D-s> :w<CR>
+nnoremap <M-s> :w<CR>
 
 " map ctrl-delete functionality:
 nnoremap <C-Del> ved
@@ -43,7 +49,6 @@ nnoremap <C-D> :dl<Enter>
 
 " map ctrl+backspace to delete the previous word
 nnoremap <C-BS> vbd
-nnoremap <M-BS> vbd
 
 " todo: mapping this on top of <C-BS> does strange things on the external
 " keyboard
@@ -125,20 +130,25 @@ inoremap <C-D> <C-[>:dl<Enter>
 " map ctrl+backspace to delete to the beginning of the current word
 " inoremap <C-S-BS> <C-[>vBdi
 
-" move a line down using alt/cmd + j
+" move a line down using alt/cmd + shift + j
 inoremap <S-D-J> <C-[>:m+<CR>a
+inoremap <M-J> <C-[>:m+<CR>a
 
-" move a line up using alt/cmd + k
+" move a line up using alt/cmd + shift + k
 inoremap <S-D-K> <C-[>:m-2<CR>a
+inoremap <M-K> <C-[>:m-2<CR>a
 
 " copy a line down using ctrl + alt/cmd + shift + j
 inoremap <C-S-D-J> <C-[>:t.<CR>a
+inoremap <M-NL> <C-[>:t.<CR>a
 
 " copy a line up using ctrl + alt/cmd + shift + k
 inoremap <C-S-D-K> <C-[>:t.<CR>a
+inoremap <M-C-K> <C-[>:t.<CR>a
 
 " delete to the beginning of a line using alt/cmd + backspace
 inoremap <D-BS> <C-[>v^di
+inoremap <M-BS> <C-[>v^di
 
 " undo with alt/cmd + z
 inoremap <D-z> <C-[>u
@@ -148,9 +158,10 @@ inoremap <S-D-z> <C-[><C-r>
 
 " map ctrl+backspace to delete the previous word
 inoremap <C-BS> <C-W>
-inoremap <M-BS> <C-W>
+inoremap <D-BS> <C-W>
 
 " map ctrl+bs as ^H this on top of <C-BS> in order to add support outside of gvim
+" NOTE: does not work (WSL)
 inoremap  <C-W>
 
 " map ctrl+space to overload ctrl+n (for autocomplete)

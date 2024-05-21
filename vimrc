@@ -40,6 +40,11 @@ nnoremap <M-s> :w<CR>
 " map ctrl-delete functionality:
 nnoremap <C-Del> ved
 
+" use alt + delete, but only on mac
+if has('macunix')
+  nnoremap <M-Del> ved
+endif
+
 " map ctrl+shift+delete to delete to the end of the word (instad of moving to
 " the beginning of the next)
 nnoremap <C-S-Del> vEd
@@ -150,15 +155,22 @@ inoremap <M-C-K> <C-[>:t.<CR>a
 inoremap <D-BS> <C-[>v^di
 inoremap <M-BS> <C-[>v^di
 
+" delete to the end of a line using cmd + delete
+inoremap <D-Del> <C-[>ld$a
+
 " undo with alt/cmd + z
 inoremap <D-z> <C-[>u
 
 " redo with alt/cmd + shift z
 inoremap <S-D-z> <C-[><C-r>
 
-" map ctrl+backspace to delete the previous word
+" map ctrl + backspace to delete the previous word
 inoremap <C-BS> <C-W>
 inoremap <D-BS> <C-W>
+
+if has('macunix')
+  inoremap <M-BS> <C-W>
+endif
 
 " map ctrl+bs as ^H this on top of <C-BS> in order to add support outside of gvim
 " NOTE: does not work (WSL)
@@ -170,13 +182,16 @@ inoremap <C-Space> <C-P>
 " map ctrl+delete this causes the cursor to shift one place to the right when
 " deleting the first word on the line
 inoremap <C-Del> <C-[>lvedi
-" also map the delete key on the laptop's builtin keyboard
-" inoremap <C-kDel> <C-[>lvedi
+
+if has('macunix')
+  inoremap <M-Del> <C-[>lvedi
+endif
 
 " map ctrl+shift+delete to delete to the end of the WORD
 inoremap <C-S-Del> <C-[>lvEhdi
-" also map the delete key on the laptop's builtin keyboard
-" inoremap <C-S-kDel> <C-[>lvEhdi
+
+" delete to the beginning of a line using alt/cmd + backspace
+inoremap <D-BS> <C-[>v^d
 
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD
 " boundaries; supplement with ctrl+shift keys
@@ -306,6 +321,7 @@ let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'sh': ['shfmt'],
 \   'graphql': ['prettier'],
 \   'markdown': ['prettier'],
 \   'toml': ['prettier'],
@@ -320,6 +336,7 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_linters = {
 \   'markdown': ['markdownlint', 'proselint'],
 \   'python': ['ruff'],
+\   'sh': ['shellcheck'],
 \}
 let g:ale_list_window_size = 5
 let g:ale_open_list = 1

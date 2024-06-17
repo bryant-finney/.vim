@@ -352,6 +352,7 @@ let g:ale_set_loclist = 1
 let g:ale_virtualtext_cursor = 1
 
 let g:ale_terraform_checkov_options = '--config-file etc/checkov.yaml'
+let g:ale_terraform_tfsec_options = '--config-file etc/tfsec.yaml'
 
 " configure vim-surround
 let g:surround_40 = "(\r)"

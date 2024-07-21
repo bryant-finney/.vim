@@ -358,6 +358,7 @@ let g:ale_python_pylint_auto_poetry = 1
 let g:ale_python_ruff_format_auto_poetry = 1
 let g:ale_set_highlights = 1
 let g:ale_set_loclist = 1
+let g:ale_sh_shfmt_options = '-i 2 -ci -kp'
 
 "let g:ale_set_quickfix = 1
 let g:ale_virtualtext_cursor = 1

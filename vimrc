@@ -177,7 +177,7 @@ endif
 inoremap  <C-W>
 
 " map ctrl+space to overload ctrl+n (for autocomplete)
-inoremap <C-Space> <C-P>
+inoremap <C-Space> <C-N>
 
 " map ctrl+delete this causes the cursor to shift one place to the right when
 " deleting the first word on the line
@@ -218,6 +218,9 @@ inoremap <M-Down> <C-[>G$a
 " use cmd + ] and cmd + [ to indent / dedent with the custom indent function
 inoremap <D-]> <C-[>:call Indent(1)<CR>a
 inoremap <D-[> <C-[>:call Indent(0)<CR>a
+
+" suggest emoji completion by triggering the user-defined completion function
+inoremap <C-e> <C-X><C-U>
 
 " ----- preferences for command mode -----
 cmap <C-BS> <C-W>
@@ -477,6 +480,9 @@ let g:deoplete#enable_at_startup = 1
 
 Plug 'jparise/vim-graphql'
 
+" support emoji suggestions 😃
+Plug 'junegunn/vim-emoji'
+
 call plug#end()
 
 if has('nvim')
@@ -529,3 +535,23 @@ autocmd FileType markdown,python,sh,vim call TodoPrettyColors()
 autocmd FileType git,gitcommit call GitPrettyColors()
 
 command Reload source $MYVIMRC
+
+command Emojize %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
+autocmd BufWritePre * Emojize
+
+function! Emoji(findstart, base)
+  if a:findstart
+    let s:startcol = col('.') - 1
+    let s:regex = printf('[%s]', join(uniq(sort(split(join(emoji#list(), ''), '\c'))), ''))
+
+    while s:startcol > 0 && getline('.')[s:startcol - 1] =~ s:regex
+      let s:startcol -= 1
+    endwhile
+    return s:startcol - 1
+  endif
+
+  return emoji#complete(a:findstart, a:base)
+endfunction
+
+" slightly_smiling_face -> 😊
+set completefunc=Emoji

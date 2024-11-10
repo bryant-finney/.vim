@@ -369,10 +369,9 @@ let g:ale_lint_on_insert_leave = 1
 "\}
 let g:ale_linters = {
 \   'markdown': ['markdownlint', 'proselint'],
-\   'python': ['ruff', 'ruff_format'],
+\   'python': ['mypy', 'ruff', 'ruff_format'],
 \   'sh': ['shellcheck'],
 \}
-" \   'python': ['ruff'],
 let g:ale_list_window_size = 5
 let g:ale_open_list = 1
 let g:ale_python_auto_pipenv = 1
@@ -561,8 +560,9 @@ autocmd FileType git,gitcommit call GitPrettyColors()
 
 command Reload source $MYVIMRC
 
-command Emojize %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
-autocmd BufWritePre * Emojize
+" note: this was causing the cursor to jump around on save
+" command Emojize %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
+" autocmd BufWritePre * Emojize
 
 function! Emoji(findstart, base)
   if a:findstart

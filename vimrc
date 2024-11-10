@@ -25,7 +25,9 @@ nnoremap <M-C-K> :t-<CR>
 
 " delete to the beginning of a line using alt/cmd + backspace
 nnoremap <D-BS> v^d
-nnoremap <M-BS> v^d
+if !has('macunix')
+  nnoremap <M-BS> v^d
+endif
 
 " undo with alt/cmd + z
 nnoremap <D-z> u
@@ -68,6 +70,12 @@ nnoremap <C-Right> e
 nnoremap <C-Left> b
 nnoremap <C-S-Right> E
 nnoremap <C-S-Left> B
+if has('macunix')
+  nnoremap <M-Right> e
+  nnoremap <M-Left> b
+  nnoremap <M-S-Right> E
+  nnoremap <M-S-Left> B
+endif
 
 " alt / cmd + left and alt / cmd + right to move to the beginning and end of the line
 nnoremap <D-Right> $
@@ -137,7 +145,11 @@ inoremap <C-D> <C-[>:dl<Enter>
 
 " move a line down using alt/cmd + shift + j
 inoremap <S-D-J> <C-[>:m+<CR>a
-inoremap <M-J> <C-[>:m+<CR>a
+if !has('macunix')
+  inoremap <M-J> <C-[>:m+<CR>a
+else
+  inoremap <D-J> <C-[>:m+<CR>a
+end
 
 " move a line up using alt/cmd + shift + k
 inoremap <S-D-K> <C-[>:m-2<CR>a
@@ -164,12 +176,16 @@ inoremap <D-z> <C-[>u
 " redo with alt/cmd + shift z
 inoremap <S-D-z> <C-[><C-r>
 
+" write with alt/cmd + s
+inoremap <D-s> <C-[>:w<CR>i
+
 " map ctrl + backspace to delete the previous word
 inoremap <C-BS> <C-W>
-inoremap <D-BS> <C-W>
 
 if has('macunix')
   inoremap <M-BS> <C-W>
+else
+  inoremap <D-BS> <C-W>
 endif
 
 " map ctrl+bs as ^H this on top of <C-BS> in order to add support outside of gvim
@@ -190,30 +206,39 @@ endif
 " map ctrl+shift+delete to delete to the end of the WORD
 inoremap <C-S-Del> <C-[>lvEhdi
 
-" delete to the beginning of a line using alt/cmd + backspace
-inoremap <D-BS> <C-[>v^d
-
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD
 " boundaries; supplement with ctrl+shift keys
-inoremap <C-Right> <C-[>ea
-inoremap <C-Left> <C-[>bi
 inoremap <C-S-Right> <C-[>Ea
 inoremap <C-S-Left> <C-[>Bi
+
+if has('macunix')
+  inoremap <M-Right> <C-Right>
+  inoremap <M-Left> <C-Left>
+  inoremap <M-S-Right> <C-[>Ea
+  inoremap <M-S-Left> <C-[>Bi
+else
+  inoremap <C-Right> <C-[>ea
+  inoremap <C-Left> <C-[>bi
+endif
 
 " map shift tab to unindent
 inoremap <S-Tab> <C-[>v<S-<>
 
 " alt / cmd + left and alt / cmd + right to move to the beginning and end of the line
 inoremap <D-Right> <C-[>$a
-inoremap <M-Right> <C-[>$a
 inoremap <D-Left> <C-[>0i
-inoremap <M-Left> <C-[>0i
+if !has('macunix')
+  inoremap <M-Right> <C-[>$a
+  inoremap <M-Left> <C-[>0i
+endif
 
 " alt / cmd + up and alt / cmd + down to move to the beginning and end of the file
 inoremap <D-Up> <C-[>gg^i
-inoremap <M-Up> <C-[>gg^i
 inoremap <D-Down> <C-[>G$a
-inoremap <M-Down> <C-[>G$a
+if !has('macunix')
+  inoremap <M-Up> <C-[>gg^i
+  inoremap <M-Down> <C-[>G$a
+endif
 
 " use cmd + ] and cmd + [ to indent / dedent with the custom indent function
 inoremap <D-]> <C-[>:call Indent(1)<CR>a

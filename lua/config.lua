@@ -8,3 +8,12 @@ require('lspconfig').pyright.setup {
 }
 
 require('lspconfig').ruff.setup {}
+
+require('lspconfig').lua_ls.setup {
+-- TODO: opening lua scripts still complained about the workspace folder
+--  settings = {
+--    Lua = {
+--      workspace = nil
+--    }
+--  }
+}

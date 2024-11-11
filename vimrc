@@ -97,6 +97,17 @@ nnoremap WJ <C-W>J
 nnoremap WL <C-W>L
 nnoremap WK <C-W>K
 
+" resize splits with similar mappings as transitions
+nnoremap <C-W><C-K> <C-W>+
+nnoremap <C-W><C-J> <C-W>-
+nnoremap <C-W><C-L> <C-W>>
+nnoremap <C-W><C-H> <C-W><
+
+nnoremap W<C-K> <C-W>+
+nnoremap W<C-J> <C-W>-
+nnoremap W<C-L> <C-W>>
+nnoremap W<C-H> <C-W><
+
 " map shift tab to unindent
 nnoremap <S-Tab> v<S-<>
 
@@ -279,6 +290,29 @@ vnoremap <D-[> :call Indent(0)<CR>
 " alt / cmd + left and alt / cmd + right to move to the beginning and end of the line
 vnoremap <D-Right> $
 vnoremap <D-Left> 0
+
+" map split transitions for when operating remotely from Windows
+vnoremap Wh <C-W><C-H>
+vnoremap Wj <C-W><C-j>
+vnoremap Wl <C-W><C-l>
+vnoremap Wk <C-W><C-K>
+
+" move windows (splits) around
+vnoremap WH <C-W>H
+vnoremap WJ <C-W>J
+vnoremap WL <C-W>L
+vnoremap WK <C-W>K
+
+" resize splits with similar mappings as transitions
+vnoremap <C-W><C-K> <C-W>+
+vnoremap <C-W><C-J> <C-W>-
+vnoremap <C-W><C-L> <C-W>>
+vnoremap <C-W><C-H> <C-W><
+
+" copy selection up/down using ctrl + alt/cmd + shift + k/j
+vnoremap <expr> <C-S-D-J> (visualmode() == "v" ? "V" : "")."y'<Pgv"
+vnoremap <expr> <C-S-D-K> (visualmode() == "v" ? "V" : "")."y'>$pgv"
+
 
 " ----- general preferences -----
 " colorscheme comes first

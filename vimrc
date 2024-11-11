@@ -15,13 +15,13 @@ nnoremap <M-J> :m+<CR>
 nnoremap <S-D-K> :m-2<CR>
 nnoremap <M-K> :m-2<CR>
 
-" copy a line down using ctrl + alt/cmd + shift + j
+" copy a line up/down using ctrl + alt/cmd + shift + k/j
 nnoremap <C-S-D-J> :t.<CR>
-nnoremap <M-NL> :t.<CR>
-
-" copy a line up using ctrl + alt/cmd + shift + k
 nnoremap <C-S-D-K> :t-<CR>
-nnoremap <M-C-K> :t-<CR>
+if !has('macunix')
+  nnoremap <M-NL> :t.<CR>
+  nnoremap <M-C-K> :t-<CR>
+endif
 
 " delete to the beginning of a line using alt/cmd + backspace
 nnoremap <D-BS> v^d

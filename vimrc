@@ -389,11 +389,15 @@ let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'sh': ['shfmt'],
+\   'css': ['prettier'],
 \   'graphql': ['prettier'],
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
 \   'markdown': ['prettier'],
 \   'python': ['ruff', 'ruff_format'],
+\   'sh': ['shfmt'],
 \   'toml': ['prettier'],
+\   'yaml': ['prettier'],
 \}
 let g:ale_lint_on_insert_leave = 1
 " mypy is firing a 'No library stub' error

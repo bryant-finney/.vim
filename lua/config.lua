@@ -1,3 +1,5 @@
+require('lspconfig').eslint.setup {}
+
 require('lspconfig').pyright.setup {
   settings = {
     pyright = {

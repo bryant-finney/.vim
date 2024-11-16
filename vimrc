@@ -57,10 +57,6 @@ nnoremap <C-D> :dl<Enter>
 " map ctrl+backspace to delete the previous word
 nnoremap <C-BS> vbd
 
-" todo: mapping this on top of <C-BS> does strange things on the external
-" keyboard
-" nnoremap  vbd                         " and the builtin keyboard
-
 " map backspace to delete the previous characer
 noremap <BS> X
 
@@ -151,9 +147,6 @@ nnoremap <D-[> :call Indent(0)<CR>
 " map ctrl+d to delete the current line
 inoremap <C-D> <C-[>:dl<Enter>
 
-" map ctrl+backspace to delete to the beginning of the current word
-" inoremap <C-S-BS> <C-[>vBdi
-
 " move a line down using alt/cmd + shift + j
 inoremap <S-D-J> <C-[>:m+<CR>a
 if !has('macunix')
@@ -176,7 +169,6 @@ inoremap <M-C-K> <C-[>:t.<CR>a
 
 " delete to the beginning of a line using alt/cmd + backspace
 inoremap <D-BS> <C-[>v^di
-inoremap <M-BS> <C-[>v^di
 
 " delete to the end of a line using cmd + delete
 inoremap <D-Del> <C-[>ld$a
@@ -195,13 +187,7 @@ inoremap <C-BS> <C-W>
 
 if has('macunix')
   inoremap <M-BS> <C-W>
-else
-  inoremap <D-BS> <C-W>
 endif
-
-" map ctrl+bs as ^H this on top of <C-BS> in order to add support outside of gvim
-" NOTE: does not work (WSL)
-inoremap  <C-W>
 
 " map ctrl+space to overload ctrl+n (for autocomplete)
 inoremap <C-Space> <C-N>
@@ -259,14 +245,25 @@ inoremap <D-[> <C-[>:call Indent(0)<CR>a
 inoremap <C-e> <C-X><C-U>
 
 " ----- preferences for command mode -----
-cmap <C-BS> <C-W>
-
-" legion is a desktop machine, so this is okay-ish:
-cmap  <C-W>
+cnoremap <C-BS> <C-W>
 
 if has('macunix')
-  " map ctrl + backspace to delete the previous word
-  cmap <M-BS> <C-W>
+  " map opt + arrow keys
+  cnoremap <M-Left> <C-Left>
+  cnoremap <M-Right> <C-Right>
+
+  " map cmd + arrow keys
+  cnoremap <D-Left> <Home>
+  cnoremap <D-Right> <End>
+
+  " map opt + backspace to delete the previous word
+  cnoremap <M-BS> <C-W>
+
+  " map cmd + backspace to delete to the beginning of the line
+  cnoremap <D-BS> <C-U>
+else
+  cnoremap <M-BS> <C-U>
+  cnoremap  <C-W>
 endif
 
 " ----- preferences for visual mode -----

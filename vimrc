@@ -43,9 +43,7 @@ nnoremap <M-s> :w<CR>
 nnoremap <C-Del> ved
 
 " use alt + delete, but only on mac
-if has('macunix')
-  nnoremap <M-Del> ved
-endif
+nnoremap <M-Del> ved
 
 " map ctrl+shift+delete to delete to the end of the word (instad of moving to
 " the beginning of the next)
@@ -66,12 +64,10 @@ nnoremap <C-Right> e
 nnoremap <C-Left> b
 nnoremap <C-S-Right> E
 nnoremap <C-S-Left> B
-if has('macunix')
-  nnoremap <M-Right> e
-  nnoremap <M-Left> b
-  nnoremap <M-S-Right> E
-  nnoremap <M-S-Left> B
-endif
+nnoremap <M-Right> e
+nnoremap <M-Left> b
+nnoremap <M-S-Right> E
+nnoremap <M-S-Left> B
 
 " alt / cmd + left and alt / cmd + right to move to the beginning and end of the line
 nnoremap <D-Right> $
@@ -149,11 +145,7 @@ inoremap <C-D> <C-[>:dl<Enter>
 
 " move a line down using alt/cmd + shift + j
 inoremap <S-D-J> <C-[>:m+<CR>a
-if !has('macunix')
-  inoremap <M-J> <C-[>:m+<CR>a
-else
-  inoremap <D-J> <C-[>:m+<CR>a
-end
+inoremap <D-J> <C-[>:m+<CR>a
 
 " move a line up using alt/cmd + shift + k
 inoremap <S-D-K> <C-[>:m-2<CR>a
@@ -185,9 +177,9 @@ inoremap <D-s> <C-[>:w<CR>i
 " map ctrl + backspace to delete the previous word
 inoremap <C-BS> <C-W>
 
-if has('macunix')
-  inoremap <M-BS> <C-W>
-endif
+inoremap <M-BS> <C-W>
+" character code is  on remote ubuntu branch / servers
+inoremap  <C-W>
 
 " map ctrl+space to overload ctrl+n (for autocomplete)
 inoremap <C-Space> <C-N>
@@ -196,9 +188,7 @@ inoremap <C-Space> <C-N>
 " deleting the first word on the line
 inoremap <C-Del> <C-[>lvedi
 
-if has('macunix')
-  inoremap <M-Del> <C-[>lvedi
-endif
+inoremap <M-Del> <C-[>lvedi
 
 " map ctrl+shift+delete to delete to the end of the WORD
 inoremap <C-S-Del> <C-[>lvEhdi
@@ -208,15 +198,12 @@ inoremap <C-S-Del> <C-[>lvEhdi
 inoremap <C-S-Right> <C-[>Ea
 inoremap <C-S-Left> <C-[>Bi
 
-if has('macunix')
-  inoremap <M-Right> <C-Right>
-  inoremap <M-Left> <C-Left>
-  inoremap <M-S-Right> <C-[>Ea
-  inoremap <M-S-Left> <C-[>Bi
-else
-  inoremap <C-Right> <C-[>ea
-  inoremap <C-Left> <C-[>bi
-endif
+inoremap <M-Right> <C-Right>
+inoremap <M-Left> <C-Left>
+inoremap <M-S-Right> <C-[>Ea
+inoremap <M-S-Left> <C-[>Bi
+inoremap <C-Right> <C-[>ea
+inoremap <C-Left> <C-[>bi
 
 " map shift tab to unindent
 inoremap <S-Tab> <C-[>v<S-<>
@@ -224,18 +211,14 @@ inoremap <S-Tab> <C-[>v<S-<>
 " alt / cmd + left and alt / cmd + right to move to the beginning and end of the line
 inoremap <D-Right> <C-[>$a
 inoremap <D-Left> <C-[>0i
-if !has('macunix')
-  inoremap <M-Right> <C-[>$a
-  inoremap <M-Left> <C-[>0i
-endif
+inoremap <M-Right> <C-[>$a
+inoremap <M-Left> <C-[>0i
 
 " alt / cmd + up and alt / cmd + down to move to the beginning and end of the file
 inoremap <D-Up> <C-[>gg^i
 inoremap <D-Down> <C-[>G$a
-if !has('macunix')
-  inoremap <M-Up> <C-[>gg^i
-  inoremap <M-Down> <C-[>G$a
-endif
+inoremap <M-Up> <C-[>gg^i
+inoremap <M-Down> <C-[>G$a
 
 " use cmd + ] and cmd + [ to indent / dedent with the custom indent function
 inoremap <D-]> <C-[>:call Indent(1)<CR>a
@@ -247,24 +230,20 @@ inoremap <C-e> <C-X><C-U>
 " ----- preferences for command mode -----
 cnoremap <C-BS> <C-W>
 
-if has('macunix')
-  " map opt + arrow keys
-  cnoremap <M-Left> <C-Left>
-  cnoremap <M-Right> <C-Right>
+" map opt + arrow keys
+cnoremap <M-Left> <C-Left>
+cnoremap <M-Right> <C-Right>
 
-  " map cmd + arrow keys
-  cnoremap <D-Left> <Home>
-  cnoremap <D-Right> <End>
+" map cmd + arrow keys
+cnoremap <D-Left> <Home>
+cnoremap <D-Right> <End>
 
-  " map opt + backspace to delete the previous word
-  cnoremap <M-BS> <C-W>
+" map opt + backspace to delete the previous word
+cnoremap <M-BS> <C-W>
 
-  " map cmd + backspace to delete to the beginning of the line
-  cnoremap <D-BS> <C-U>
-else
-  cnoremap <M-BS> <C-U>
-  cnoremap  <C-W>
-endif
+" map cmd + backspace to delete to the beginning of the line
+cnoremap <D-BS> <C-U>
+cnoremap  <C-W>
 
 " ----- preferences for visual mode -----
 " map ctrl+left and ctrl+right to move to word boundaries instead of WORD

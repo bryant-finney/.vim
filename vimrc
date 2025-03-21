@@ -77,6 +77,10 @@ nnoremap <D-Left> 0
 nnoremap <D-Up> gg^
 nnoremap <D-Down> G$
 
+" map visual-multi bindings for adding new cursors above / below
+nnoremap <M-k> :<C-U>call vm#commands#add_cursor_up(0, v:count1)<CR>
+nnoremap <M-j> :<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR>
+
 " map split transitions for when operating remotely from Windows
 nnoremap Wh <C-W><C-H>
 nnoremap Wj <C-W><C-j>
@@ -574,8 +578,8 @@ autocmd FileType git,gitcommit call GitPrettyColors()
 
 command Reload source $MYVIMRC
 
+command Emojize %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 " note: this was causing the cursor to jump around on save
-" command Emojize %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 " autocmd BufWritePre * Emojize
 
 function! Emoji(findstart, base)

@@ -463,12 +463,6 @@ endif
 " Add the vim-surround plugin for surrounding with quotes, brackets, etc
 Plug 'tpope/vim-surround'
 
-" Add plugin for formatting and error checking shell scripts
-Plug '42wim/vim-shfmt'
-
-" Add plugin for performing static analysis + style checks with flake8
-" Plug 'nvie/vim-flake8'
-
 " Add plugin for checking docstrings with pydocstyle
 Plug 'w0rp/ale'
 
@@ -496,7 +490,10 @@ Plug 'airblade/vim-gitgutter', {'branch': 'main'}
 " Create a pain for showing file diffs
 Plug 'jreybert/vimagit'
 
+" ref: https://github.com/CopilotC-Nvim/CopilotChat.nvim?tab=readme-ov-file#vim-plug
 Plug 'github/copilot.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
 " support multiple cursors
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}

@@ -19,3 +19,7 @@ require('lspconfig').lua_ls.setup {
 --    }
 --  }
 }
+
+require('CopilotChat').setup {
+
+}

@@ -359,7 +359,6 @@ autocmd FileType json autocmd BufWritePre <buffer> nested :FormatJSON
 
 " set originally for matlab, but probably generally useful:
 filetype indent on
-source $VIMRUNTIME/macros/matchit.vim
 source $VIMRUNTIME/ftplugin/man.vim
 
 let g:python3_host_prog = "python3"

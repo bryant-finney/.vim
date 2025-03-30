@@ -521,6 +521,12 @@ Plug 'jparise/vim-graphql'
 " support emoji suggestions 😃
 Plug 'junegunn/vim-emoji'
 
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'pwntester/octo.nvim'
+
 call plug#end()
 
 if has('nvim')
@@ -561,21 +567,24 @@ fun! GitPrettyColors()
 endfun
 
 fun TodoPrettyColors()
-    syntax match MyTodo contained "\v.*todo|TODO.*"
-    highlight link MyTodo Todo
+    syntax match MyNote contained ".*note|NOTE.*"
+    syntax match MyTodo contained ".*todo|TODO.*"
+    highlight MyTodo gui=bold cterm=bold ctermfg=5 guifg=plum3
+    highlight MyNote cterm=bold ctermfg=5
 endf
 
 call PrettyColors()
 call TodoPrettyColors()
 
 autocmd FileType markdown,python,sh,vim call PrettyColors()|:call TodoPrettyColors()
-autocmd FileType markdown,python,sh,vim call TodoPrettyColors()
+autocmd FileType markdown,python,sh,vim,lua call TodoPrettyColors()
 autocmd FileType git,gitcommit call GitPrettyColors()
 
 command Reload source $MYVIMRC
 
 command Emojize %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
-" note: this was causing the cursor to jump around on save
+
+" NOTE this was causing the cursor to jump around on save
 " autocmd BufWritePre * Emojize
 
 function! Emoji(findstart, base)

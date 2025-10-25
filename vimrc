@@ -371,11 +371,11 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'graphql': ['prettier'],
 \   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
 \   'markdown': ['prettier'],
 \   'python': ['ruff', 'ruff_format'],
 \   'sh': ['shfmt'],
 \   'toml': ['prettier'],
+\   'typescript': ['prettier'],
 \   'yaml': ['prettier'],
 \}
 let g:ale_lint_on_insert_leave = 1
@@ -385,6 +385,7 @@ let g:ale_lint_on_insert_leave = 1
 "\   'python': ['flake8', 'pydocstyle', 'mypy', 'bandit'],
 "\}
 let g:ale_linters = {
+\   'lua': ['lua_language_server'],
 \   'markdown': ['markdownlint', 'proselint'],
 \   'python': ['mypy', 'ruff', 'ruff_format'],
 \   'sh': ['shellcheck'],

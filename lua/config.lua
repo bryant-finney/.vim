@@ -26,36 +26,26 @@ require("telescope").setup {
 -- load_extension, somewhere after setup function:
 require("telescope").load_extension("ui-select")
 
--- TODO: require('lspconfig') is deprecated in Neovim 0.11+
--- Migrate to vim.lsp.config API (see :help lspconfig-nvim-0.11)
--- This will be removed in nvim-lspconfig v3.0.0
-require('lspconfig').eslint.setup {}
+-- LSP configuration using vim.lsp.config API (Neovim 0.11+)
+vim.lsp.config.eslint  = require('eslint')
+vim.lsp.config.pyright = require('pyright')
+vim.lsp.config.ruff    = require('ruff')
+vim.lsp.config.lua_ls  = require('lua_ls')
+vim.lsp.config.taplo   = require('taplo')
 
-require('lspconfig').pyright.setup {
-  settings = {
-    pyright = {
-      -- Using Ruff's import organizer
-      disableOrganizeImports = true,
-    },
+vim.diagnostic.config({
+  loclist = {
+    open = true,
+    severity = { min = vim.diagnostic.severity.WARN },
   },
-}
+  virtual_text = true,
+})
 
-require('lspconfig').ruff.setup {}
-
-require('lspconfig').lua_ls.setup {
--- TODO: opening lua scripts still complained about the workspace folder
---  settings = {
---    Lua = {
---      workspace = nil
---    }
---  }
-}
-
-require('CopilotChat').setup {
-
-}
+require('CopilotChat').setup {}
 
 require('nvim-treesitter.configs').setup {
+  modules = {},
+
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
   ensure_installed = "all",
 
@@ -102,6 +92,7 @@ require("octo").setup({
   use_local_fs = false,                    -- use local files on right side of reviews
   enable_builtin = true,                   -- shows a list of builtin actions when no action is provided
   default_delete_branch = true,            -- whether to delete branch when merging pull request with either `Octo pr merge` or from picker (can be overridden with `delete`/`nodelete` argument to `Octo pr merge`)
+
   picker_config = {
     use_emojis = false,                    -- only used by "fzf-lua" picker for now
     mappings = {                           -- mappings for the pickers
@@ -111,6 +102,7 @@ require("octo").setup({
       merge_pr = { lhs = "<C-r>", desc = "merge pull request" },
     },
   },
+
   comment_icon = "▎",                      -- comment marker
   outdated_icon = "󰅒 ",                    -- outdated indicator
   resolved_icon = " ",                    -- resolved indicator
@@ -122,6 +114,7 @@ require("octo").setup({
   timeline_marker = " ",                  -- timeline marker
   timeline_indent = "2",                   -- timeline indentation
   use_timeline_icons = true,               -- toggle timeline icons
+
   timeline_icons = {                       -- the default icons based on timelineItems
     commit = "  ",
     label = "  ",
@@ -134,16 +127,19 @@ require("octo").setup({
     milestone = "  ",
     renamed = "  ",
     merged = { "  ", "OctoPurple" },
+
     closed = {
       closed = { "  ", "OctoRed" },
       completed = { "  ", "OctoPurple" },
       not_planned = { "  ", "OctoGrey" },
       duplicate = { "  ", "OctoGrey" },
     },
+
     reopened = { "  ", "OctoGreen" },
     assigned = "  ",
     review_requested = "  ",
   },
+
   right_bubble_delimiter = "",            -- bubble delimiter
   left_bubble_delimiter = "",             -- bubble delimiter
   github_hostname = "",                    -- GitHub Enterprise host
@@ -151,21 +147,25 @@ require("octo").setup({
   gh_cmd = "gh",                           -- Command to use when calling Github CLI
   gh_env = {},                             -- extra environment variables to pass on to GitHub CLI, can be a table or function returning a table
   timeout = 5000,                          -- timeout for requests between the remote server
+
   default_to_projects_v2 = false,          -- use projects v2 for the `Octo card ...` command by default. Both legacy and v2 commands are available under `Octo cardlegacy ...` and `Octo cardv2 ...` respectively.
   ui = {
     use_signcolumn = false,                -- show "modified" marks on the sign column
     use_signstatus = true,                 -- show "modified" marks on the status column
   },
+
   issues = {
     order_by = {                           -- criteria to sort results of `Octo issue list`
       field = "CREATED_AT",                -- either COMMENTS, CREATED_AT or UPDATED_AT (https://docs.github.com/en/graphql/reference/enums#issueorderfield)
       direction = "DESC"                   -- either DESC or ASC (https://docs.github.com/en/graphql/reference/enums#orderdirection)
     }
   },
+
   reviews = {
     auto_show_threads = true,              -- automatically show comment threads on cursor move
     focus             = "right",           -- focus right buffer on diff open
   },
+
   runs = {
     icons = {
       pending = "🕖",
@@ -176,6 +176,7 @@ require("octo").setup({
       cancelled = "✖",
     },
   },
+
   pull_requests = {
     order_by = {                           -- criteria to sort the results of `Octo pr list`
       field = "CREATED_AT",                -- either COMMENTS, CREATED_AT or UPDATED_AT (https://docs.github.com/en/graphql/reference/enums#issueorderfield)
@@ -183,13 +184,16 @@ require("octo").setup({
     },
     always_select_remote_on_create = false -- always give prompt to select base remote repo when creating PRs
   },
+
   notifications = {
     current_repo_only = false,             -- show notifications for current repo only
   },
+
   file_panel = {
     size = 10,                             -- changed files panel rows
     use_icons = true                       -- use web-devicons in file panel (if false, nvim-web-devicons does not need to be installed)
   },
+
   colors = {                               -- used for highlight groups (see Colors section below)
     white = "#ffffff",
     grey = "#2A354C",
@@ -204,7 +208,9 @@ require("octo").setup({
     dark_blue = "#0366d6",
     purple = "#6f42c1",
   },
+
   mappings_disable_default = false,        -- disable default mappings if true, but will still adapt user mappings
+
   mappings = {
     runs = {
       expand_step = { lhs = "o", desc = "expand workflow step" },
@@ -212,6 +218,7 @@ require("octo").setup({
       refresh = { lhs = "<C-r>", desc = "refresh workflow" },
       copy_url = { lhs = "<C-y>", desc = "copy url to system clipboard" },
     },
+
     issue = {
       close_issue = { lhs = "<localleader>ic", desc = "close issue" },
       reopen_issue = { lhs = "<localleader>io", desc = "reopen issue" },
@@ -238,6 +245,7 @@ require("octo").setup({
       react_laugh = { lhs = "<localleader>rl", desc = "add/remove 😄 reaction" },
       react_confused = { lhs = "<localleader>rc", desc = "add/remove 😕 reaction" },
     },
+
     pull_request = {
       checkout_pr = { lhs = "<localleader>po", desc = "checkout PR" },
       merge_pr = { lhs = "<localleader>pm", desc = "merge commit PR" },
@@ -278,6 +286,7 @@ require("octo").setup({
       resolve_thread = { lhs = "<localleader>rt", desc = "resolve PR thread" },
       unresolve_thread = { lhs = "<localleader>rT", desc = "unresolve PR thread" },
     },
+
     review_thread = {
       goto_issue = { lhs = "<localleader>gi", desc = "navigate to a local repo issue" },
       add_comment = { lhs = "<localleader>ca", desc = "add comment" },
@@ -301,12 +310,14 @@ require("octo").setup({
       resolve_thread = { lhs = "<localleader>rt", desc = "resolve PR thread" },
       unresolve_thread = { lhs = "<localleader>rT", desc = "unresolve PR thread" },
     },
+
     submit_win = {
       approve_review = { lhs = "<C-a>", desc = "approve review", mode = { "n", "i" } },
       comment_review = { lhs = "<C-m>", desc = "comment review", mode = { "n", "i" } },
       request_changes = { lhs = "<C-r>", desc = "request changes review", mode = { "n", "i" } },
       close_review_tab = { lhs = "<C-c>", desc = "close review tab", mode = { "n", "i" } },
     },
+
     review_diff = {
       submit_review = { lhs = "<localleader>vs", desc = "submit review" },
       discard_review = { lhs = "<localleader>vd", desc = "discard review" },
@@ -324,6 +335,7 @@ require("octo").setup({
       toggle_viewed = { lhs = "<localleader><space>", desc = "toggle viewer viewed state" },
       goto_file = { lhs = "gf", desc = "go to file" },
     },
+
     file_panel = {
       submit_review = { lhs = "<localleader>vs", desc = "submit review" },
       discard_review = { lhs = "<localleader>vd", desc = "discard review" },
@@ -340,6 +352,7 @@ require("octo").setup({
       close_review_tab = { lhs = "<C-c>", desc = "close review tab" },
       toggle_viewed = { lhs = "<localleader><space>", desc = "toggle viewer viewed state" },
     },
+
     notification = {
       read = { lhs = "<localleader>rn", desc = "mark notification as read" },
     },

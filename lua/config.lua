@@ -26,6 +26,9 @@ require("telescope").setup {
 -- load_extension, somewhere after setup function:
 require("telescope").load_extension("ui-select")
 
+-- TODO: require('lspconfig') is deprecated in Neovim 0.11+
+-- Migrate to vim.lsp.config API (see :help lspconfig-nvim-0.11)
+-- This will be removed in nvim-lspconfig v3.0.0
 require('lspconfig').eslint.setup {}
 
 require('lspconfig').pyright.setup {

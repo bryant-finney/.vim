@@ -477,8 +477,10 @@ Plug 'plasticboy/vim-markdown'
 " Add plugin to auto close parens/braces/brackets/quotes
 Plug 'jiangmiao/auto-pairs'
 
-" Add plugin for better python syntax highlighting
-Plug 'wookayin/semshi', {'do': ':UpdateRemotePlugins'}
+" Add plugin for better python syntax highlighting (Neovim only)
+if has('nvim')
+  Plug 'wookayin/semshi', {'do': ':UpdateRemotePlugins'}
+endif
 
 " Add plugin for taking notes using RST
 Plug 'gu-fan/riv.vim'
@@ -491,8 +493,11 @@ Plug 'jreybert/vimagit'
 
 " ref: https://github.com/CopilotC-Nvim/CopilotChat.nvim?tab=readme-ov-file#vim-plug
 Plug 'github/copilot.vim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'CopilotC-Nvim/CopilotChat.nvim'
+if has('nvim')
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'CopilotC-Nvim/CopilotChat.nvim'
+  Plug 'neovim/nvim-lspconfig'
+endif
 
 " support multiple cursors
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -521,13 +526,14 @@ Plug 'jparise/vim-graphql'
 " support emoji suggestions 😃
 Plug 'junegunn/vim-emoji'
 
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
-Plug 'nvim-telescope/telescope-ui-select.nvim'
-
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-lua/plenary.nvim'
-Plug 'pwntester/octo.nvim'
+if has('nvim')
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+  Plug 'nvim-telescope/telescope-ui-select.nvim'
+  Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  " Note: plenary.nvim already declared above with CopilotChat
+  Plug 'pwntester/octo.nvim'
+endif
 
 call plug#end()
 

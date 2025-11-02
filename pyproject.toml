@@ -19,7 +19,7 @@ disallow_incomplete_defs    = true
 disallow_untyped_calls      = true
 disallow_untyped_decorators = true
 disallow_untyped_defs       = true
-exclude                     = ["dist", "tests/fixtures", ".venv", "plugged"]
+exclude                     = ["dist", "tests/fixtures/unformatted.py", ".venv", "plugged"]
 ignore_missing_imports      = true
 pretty                      = true
 show_column_numbers         = true
@@ -50,28 +50,28 @@ args = [{ help = "Path to the uv script to run", name = "script" }]
 cmd  = "/usr/bin/env -S uv run --script ${script}"
 help = "Run the given `uv` script"
 
-[tool.poe.tasks.check-nvim]
-cmd  = "nvim --version"
-help = "Retrieve the installed version of neovim"
-
-[tool.poe.tasks.test-config]
-args = [{ default = "tests/config.lua", name = "lua" }]
-help = "Run configuration tests"
-ref  = "_headless_nvim_lua"
-
 [tool.poe.tasks.check-lua-syntax]
 args = [{ default = "tests/check_lua_syntax.py", name = "script" }]
 help = "Check the syntax of the Lua configuration files"
 ref  = "_uv-script"
+
+[tool.poe.tasks.check-nvim]
+cmd  = "nvim --version"
+help = "Retrieve the installed version of neovim"
 
 [tool.poe.tasks.check-taplo-version]
 args = [{ default = "tests/check_taplo_version.py", name = "script" }]
 help = "Verify the correct version of Taplo is installed"
 ref  = "_uv-script"
 
-[tool.poe.tasks.test-taplo-format]
-args = [{ default = "tests/taplo-format.lua", name = "lua" }]
-help = "Test that taplo LSP autoformats TOML files on save"
+[tool.poe.tasks.test-config]
+args = [{ default = "tests/config.lua", name = "lua" }]
+help = "Run configuration tests"
+ref  = "_headless_nvim_lua"
+
+[tool.poe.tasks.test-eslint]
+args = [{ default = "tests/eslint-lsp.lua", name = "lua" }]
+help = "Test eslint LSP functionality"
 ref  = "_headless_nvim_lua_with_plugins"
 
 [tool.poe.tasks.test-lua_ls]
@@ -79,19 +79,19 @@ args = [{ default = "tests/lua_ls-lsp.lua", name = "lua" }]
 help = "Test lua_ls LSP functionality"
 ref  = "_headless_nvim_lua_with_plugins"
 
-[tool.poe.tasks.test-ruff]
-args = [{ default = "tests/ruff-lsp.lua", name = "lua" }]
-help = "Test ruff LSP functionality"
-ref  = "_headless_nvim_lua_with_plugins"
-
 [tool.poe.tasks.test-pyright]
 args = [{ default = "tests/pyright-lsp.lua", name = "lua" }]
 help = "Test pyright LSP functionality"
 ref  = "_headless_nvim_lua_with_plugins"
 
-[tool.poe.tasks.test-eslint]
-args = [{ default = "tests/eslint-lsp.lua", name = "lua" }]
-help = "Test eslint LSP functionality"
+[tool.poe.tasks.test-ruff]
+args = [{ default = "tests/ruff-lsp.lua", name = "lua" }]
+help = "Test ruff LSP functionality"
+ref  = "_headless_nvim_lua_with_plugins"
+
+[tool.poe.tasks.test-taplo-format]
+args = [{ default = "tests/taplo-format.lua", name = "lua" }]
+help = "Test that taplo LSP autoformats TOML files on save"
 ref  = "_headless_nvim_lua_with_plugins"
 
 [tool.poe.tasks.test]
@@ -110,15 +110,15 @@ sequence = [
 
 [tool.pyright]
 enablePytestExtra = true
-exclude           = [".venv/**", "docs", "tests/fixtures/**", "plugged/**"]
-ignore            = ["**/.venv/**", "**/tests/fixtures/**"]
+exclude           = [".venv/**", "docs", "tests/fixtures/unformatted.py", "plugged/**"]
+ignore            = ["**/.venv/**", "tests/fixtures/unformatted.py", "plugged/**"]
 strict            = ["src", "tests", "bin"]
 stubPath          = "typings"
 typeCheckingMode  = "strict"
 venv              = ".venv"
 
 [tool.ruff]
-exclude        = ["tests/fixtures", "plugged", ".venv"]
+exclude        = ["tests/fixtures/unformatted.py", "plugged", ".venv"]
 extend-include = ["*.ipynb"]
 fix            = true
 line-length    = 120

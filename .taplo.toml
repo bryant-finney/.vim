@@ -1,4 +1,4 @@
-exclude = ["tests/fixtures/unformatted.*", "plugged/**"]
+exclude = ["tests/fixtures/unformatted.toml", "plugged/**"]
 include = ["**/*.toml", "*.lock"]
 
 [formatting]

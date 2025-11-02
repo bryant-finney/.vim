@@ -14,7 +14,7 @@
     "workspace": {
         "checkThirdParty": true,
         "ignoreDir": [
-            "tests/fixtures"
+            "tests/fixtures/unformatted.lua"
         ]
     },
     "telemetry": {

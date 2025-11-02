@@ -47,7 +47,7 @@ end
 -- Create and open a test file
 print("\n[3/5] Creating test file with type error...")
 local test_file = vim.fn.expand('~/.vim/tests/fixtures/temp-pyright-test.py')
-local f = io.open(test_file, 'w')
+local f = assert(io.open(test_file, 'w'), "Failed to create test file")
 f:write([[
 def greet(name: str) -> str:
     return f"Hello, {name}"

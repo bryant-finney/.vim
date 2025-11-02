@@ -34,7 +34,7 @@ end
 -- Create and open a test file
 print("\n[2/4] Creating test file...")
 local test_file = vim.fn.expand('~/.vim/tests/fixtures/temp-test.js')
-local f = io.open(test_file, 'w')
+local f = assert(io.open(test_file, 'w'), "Failed to create test file")
 f:write([[
 const unused_var = 42;
 

@@ -1,3 +1,5 @@
 black/
 .netrwhist
 plugged
+__pycache__
+docs

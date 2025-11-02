@@ -1,0 +1,173 @@
+[dependency-groups]
+dev = ["mypy[reports]>=1.18.2", "pynvim>=0.6.0", "pyright>=1.1.407", "rich>=14.2.0", "ruff>=0.14.2", "sh>=2.2.2"]
+
+[project]
+description = "Yet another neovim configuration (with partial legacy support for vim)"
+name        = "dotvim"
+readme      = "README.md"
+version     = "0.1.0"
+
+authors = [{ email = "bryant.finney@outlook.com", name = "Bryant Finney" }]
+
+dependencies    = []
+requires-python = ">=3.10"
+
+[tool.mypy]
+# https://mypy.readthedocs.io/en/latest/config_file.html
+check_untyped_defs          = true
+disallow_incomplete_defs    = true
+disallow_untyped_calls      = true
+disallow_untyped_decorators = true
+disallow_untyped_defs       = true
+exclude                     = ["dist", "tests/fixtures", ".venv", "plugged"]
+ignore_missing_imports      = true
+pretty                      = true
+show_column_numbers         = true
+show_error_codes            = true
+show_error_context          = true
+strict                      = true
+warn_unreachable            = true
+
+[tool.poe.tasks]
+
+[tool.poe.tasks._headless_nvim_lua]
+args = [{ help = "Path to the Lua file to execute", name = "lua" }]
+cmd  = """nvim --headless --noplugin -c "lua dofile('${lua}')""""
+help = "Run a headless nvim command to execute the given Lua file"
+
+[tool.poe.tasks._headless_nvim_lua_with_plugins]
+args = [{ help = "Path to the Lua file to execute", name = "lua" }]
+cmd  = """nvim --headless -c "lua dofile('${lua}')""""
+help = "Run a headless nvim command with plugins to execute the given Lua file"
+
+[tool.poe.tasks._luac]
+args = [{ help = "Path to the Lua file to check", name = "lua" }]
+cmd  = "luac -p ${lua}"
+help = "Utilize `luac` to check the syntax of the given Lua file"
+
+[tool.poe.tasks._uv-script]
+args = [{ help = "Path to the uv script to run", name = "script" }]
+cmd  = "/usr/bin/env -S uv run --script ${script}"
+help = "Run the given `uv` script"
+
+[tool.poe.tasks.check-nvim]
+cmd  = "nvim --version"
+help = "Retrieve the installed version of neovim"
+
+[tool.poe.tasks.test-config]
+args = [{ default = "tests/config.lua", name = "lua" }]
+help = "Run configuration tests"
+ref  = "_headless_nvim_lua"
+
+[tool.poe.tasks.check-lua-syntax]
+args = [{ default = "tests/check_lua_syntax.py", name = "script" }]
+help = "Check the syntax of the Lua configuration files"
+ref  = "_uv-script"
+
+[tool.poe.tasks.check-taplo-version]
+args = [{ default = "tests/check_taplo_version.py", name = "script" }]
+help = "Verify the correct version of Taplo is installed"
+ref  = "_uv-script"
+
+[tool.poe.tasks.test-taplo-format]
+args = [{ default = "tests/taplo-format.lua", name = "lua" }]
+help = "Test that taplo LSP autoformats TOML files on save"
+ref  = "_headless_nvim_lua_with_plugins"
+
+[tool.poe.tasks.test-lua_ls]
+args = [{ default = "tests/lua_ls-lsp.lua", name = "lua" }]
+help = "Test lua_ls LSP functionality"
+ref  = "_headless_nvim_lua_with_plugins"
+
+[tool.poe.tasks.test-ruff]
+args = [{ default = "tests/ruff-lsp.lua", name = "lua" }]
+help = "Test ruff LSP functionality"
+ref  = "_headless_nvim_lua_with_plugins"
+
+[tool.poe.tasks.test-pyright]
+args = [{ default = "tests/pyright-lsp.lua", name = "lua" }]
+help = "Test pyright LSP functionality"
+ref  = "_headless_nvim_lua_with_plugins"
+
+[tool.poe.tasks.test-eslint]
+args = [{ default = "tests/eslint-lsp.lua", name = "lua" }]
+help = "Test eslint LSP functionality"
+ref  = "_headless_nvim_lua_with_plugins"
+
+[tool.poe.tasks.test]
+help = "Run the complete test suite for Vim configuration"
+sequence = [
+  "check-nvim",
+  "check-lua-syntax",
+  "check-taplo-version",
+  "test-config",
+  "test-lua_ls",
+  "test-ruff",
+  "test-pyright",
+  "test-eslint",
+  "test-taplo-format",
+]
+
+[tool.pyright]
+enablePytestExtra = true
+exclude           = [".venv/**", "docs", "tests/fixtures/**", "plugged/**"]
+ignore            = ["**/.venv/**", "**/tests/fixtures/**"]
+strict            = ["src", "tests", "bin"]
+stubPath          = "typings"
+typeCheckingMode  = "strict"
+venv              = ".venv"
+
+[tool.ruff]
+exclude        = ["tests/fixtures", "plugged", ".venv"]
+extend-include = ["*.ipynb"]
+fix            = true
+line-length    = 120
+output-format  = "full"
+show-fixes     = true
+src            = ["src", "tests", "tools"]
+target-version = "py310"
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.yamlfix]
+line_length        = 120
+section_whitelines = 1
+whitelines         = 1
+
+[tool.ruff.lint]
+select = [
+  "B",
+  "C90",
+  "D",
+  "E1",
+  "E4",
+  "E7",
+  "E9",
+  "ERA",
+  "F",
+  "G",
+  "I",
+  "N",
+  "PL",
+  "PT",
+  "RET",
+  "RUF",
+  "S",
+  "T20",
+  "TID",
+  "UP",
+  "W",
+]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.isort]
+known-first-party = ["lock_migrations", "tests", "tools"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 5
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

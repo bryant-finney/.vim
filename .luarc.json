@@ -12,7 +12,10 @@
         ]
     },
     "workspace": {
-        "checkThirdParty": true
+        "checkThirdParty": true,
+        "ignoreDir": [
+            "tests/fixtures"
+        ]
     },
     "telemetry": {
         "enable": false

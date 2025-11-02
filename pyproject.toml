@@ -94,6 +94,11 @@ args = [{ default = "tests/taplo-format.lua", name = "lua" }]
 help = "Test that taplo LSP autoformats TOML files on save"
 ref  = "_headless_nvim_lua_with_plugins"
 
+[tool.poe.tasks.test-claude-command]
+args = [{ default = "tests/claude-command.lua", name = "lua" }]
+help = "Test :Claude command functionality"
+ref  = "_headless_nvim_lua_with_plugins"
+
 [tool.poe.tasks.test]
 help = "Run the complete test suite for Vim configuration"
 sequence = [
@@ -106,6 +111,7 @@ sequence = [
   "test-pyright",
   "test-eslint",
   "test-taplo-format",
+  "test-claude-command",
 ]
 
 [tool.pyright]

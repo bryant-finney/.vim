@@ -593,6 +593,9 @@ command Reload source $MYVIMRC
 
 command Emojize %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 
+" Open claude in a vertical split terminal
+command Claude vsplit | terminal claude
+
 " NOTE this was causing the cursor to jump around on save
 " autocmd BufWritePre * Emojize
 

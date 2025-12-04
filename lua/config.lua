@@ -32,6 +32,7 @@ vim.lsp.config.pyright = require('pyright')
 vim.lsp.config.ruff    = require('ruff')
 vim.lsp.config.lua_ls  = require('lua_ls')
 vim.lsp.config.taplo   = require('taplo')
+vim.lsp.config.jsonls  = require('jsonls')
 
 vim.diagnostic.config({
   loclist = {

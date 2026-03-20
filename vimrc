@@ -361,7 +361,7 @@ autocmd FileType json autocmd BufWritePre <buffer> nested :FormatJSON
 filetype indent on
 source $VIMRUNTIME/ftplugin/man.vim
 
-let g:python3_host_prog = "python3"
+let g:python3_host_prog = "python3.12"
 
 " configure ALE
 let g:ale_completion_enabled = 1

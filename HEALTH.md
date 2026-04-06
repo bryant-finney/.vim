@@ -1,6 +1,6 @@
 # Neovim Health Check
 
-> Generated on 2026-04-05 by `poe test-checkhealth`
+> Generated on 2026-04-06 by `poe test-checkhealth`
 
 ## Summary
 
@@ -13,9 +13,9 @@
 | [telescope](#telescope)             | ✅     | 4    | 0        | 0      |
 | [vim.deprecated](#vimdeprecated)    | ✅     | 1    | 0        | 0      |
 | [vim.health](#vimhealth)            | ✅     | 8    | 0        | 0      |
-| [vim.lsp](#vimlsp)                  | ⚠️     | 0    | 2        | 0      |
+| [vim.lsp](#vimlsp)                  | ✅     | 0    | 0        | 0      |
 | [vim.pack](#vimpack)                | ✅     | 1    | 0        | 0      |
-| [vim.provider](#vimprovider)        | ⚠️     | 3    | 1        | 0      |
+| [vim.provider](#vimprovider)        | ✅     | 4    | 0        | 0      |
 | [vim.treesitter](#vimtreesitter)    | ✅     | 1496 | 0        | 0      |
 
 ## CopilotChat
@@ -27,7 +27,7 @@
   LuaJIT 2.1.1774896198
   Run "nvim -V1 -v" for more info
 - ✅ initialized: true
-- ✅ temp dir: writable (/tmp/lua_bzESSI)
+- ✅ temp dir: writable (/tmp/lua_SGN4ZI)
 
 ### CopilotChat.nvim [commands]
 
@@ -180,23 +180,14 @@
 
 ### vim.lsp: Enabled Configurations
 
-- ⚠️ 'vscode-eslint-language-server' is not executable. Configuration will not be used.
-
 #### eslint
 
 - **before_init:** `/Users/bf/.config/nvim/pack/nvim/start/nvim-lspconfig/lsp/eslint.lua:120`
-
 - **cmd:** `vscode-eslint-language-server --stdio`
-
 - **filetypes:** `javascript`, `javascriptreact`, `typescript`, `typescriptreact`, `vue`, `svelte`, `astro`, `htmlangular`
-
 - **on_attach:** `/Users/bf/.config/nvim/pack/nvim/start/nvim-lspconfig/lsp/eslint.lua:51`
-
 - **root_dir:** `/Users/bf/.config/nvim/pack/nvim/start/nvim-lspconfig/lsp/eslint.lua:65`
-
 - **workspace_required:** true
-
-- ⚠️ 'vscode-json-language-server' is not executable. Configuration will not be used.
 
 #### jsonls
 
@@ -252,11 +243,7 @@
 
 ### Node.js provider (optional)
 
-- ⚠️ Package "neovim" is out-of-date. Installed: 5.3.0, latest: 5.4.0
-
-  - **Advice:** Run in shell: npm install -g neovim
-  - **Advice:** Run in shell (if you use yarn): yarn global add neovim
-  - **Advice:** Run in shell (if you use pnpm): pnpm install -g neovim
+- ✅ Latest "neovim" npm/yarn/pnpm package is installed: 5.4.0
 
 - Node.js: 25.9.0
 

@@ -18,9 +18,20 @@ This repository contains a comprehensive Vim/Neovim configuration featuring:
 - **Neovim**: v0.9.0 or higher (for full LSP and Lua support)
 - **Vim**: v8.0+ (for legacy support, limited features)
 - **Python**: 3.10 or higher
-- **Node.js**: Required for some LSP servers (eslint)
+- **Node.js**: Required for some LSP servers and the Neovim Node.js provider
 - **direnv**: For automatic environment setup
 - **uv**: Python package manager (auto-installed by direnv)
+
+### Node.js Packages
+
+Install globally for LSP servers and the Neovim remote plugin host:
+
+```bash
+npm install -g neovim vscode-langservers-extracted
+```
+
+- **neovim**: Node.js host for Neovim remote plugins
+- **vscode-langservers-extracted**: Language servers for ESLint, JSON, HTML, and CSS
 
 ### Optional Dependencies
 

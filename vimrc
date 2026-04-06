@@ -362,6 +362,8 @@ filetype indent on
 source $VIMRUNTIME/ftplugin/man.vim
 
 let g:python3_host_prog = "python3.12"
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
 
 " configure ALE
 let g:ale_completion_enabled = 1

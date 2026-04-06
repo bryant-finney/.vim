@@ -4,19 +4,19 @@
 
 ## Summary
 
-| Section                             | Status | OK   | Warnings | Errors |
-| ----------------------------------- | ------ | ---- | -------- | ------ |
-| [CopilotChat](#copilotchat)         | ⚠️     | 14   | 1        | 0      |
-| [deoplete](#deoplete)               | ✅     | 5    | 0        | 0      |
-| [lspconfig](#lspconfig)             | ✅     | 0    | 0        | 0      |
-| [nvim-treesitter](#nvim-treesitter) | ⚠️     | 4    | 1        | 0      |
-| [telescope](#telescope)             | ✅     | 4    | 0        | 0      |
-| [vim.deprecated](#vimdeprecated)    | ✅     | 1    | 0        | 0      |
-| [vim.health](#vimhealth)            | ✅     | 8    | 0        | 0      |
-| [vim.lsp](#vimlsp)                  | ✅     | 0    | 0        | 0      |
-| [vim.pack](#vimpack)                | ✅     | 1    | 0        | 0      |
-| [vim.provider](#vimprovider)        | ✅     | 4    | 0        | 0      |
-| [vim.treesitter](#vimtreesitter)    | ✅     | 1496 | 0        | 0      |
+| Section                             | Status | OK  | Warnings | Errors |
+| ----------------------------------- | ------ | --- | -------- | ------ |
+| [CopilotChat](#copilotchat)         | ⚠️     | 14  | 1        | 0      |
+| [deoplete](#deoplete)               | ✅     | 5   | 0        | 0      |
+| [lspconfig](#lspconfig)             | ✅     | 0   | 0        | 0      |
+| [nvim-treesitter](#nvim-treesitter) | ✅     | 6   | 0        | 0      |
+| [telescope](#telescope)             | ✅     | 4   | 0        | 0      |
+| [vim.deprecated](#vimdeprecated)    | ✅     | 1   | 0        | 0      |
+| [vim.health](#vimhealth)            | ⚠️     | 8   | 1        | 0      |
+| [vim.lsp](#vimlsp)                  | ✅     | 0   | 0        | 0      |
+| [vim.pack](#vimpack)                | ✅     | 1   | 0        | 0      |
+| [vim.provider](#vimprovider)        | ✅     | 4   | 0        | 0      |
+| [vim.treesitter](#vimtreesitter)    | ✅     | 351 | 0        | 0      |
 
 ## CopilotChat
 
@@ -27,7 +27,7 @@
   LuaJIT 2.1.1774896198
   Run "nvim -V1 -v" for more info
 - ✅ initialized: true
-- ✅ temp dir: writable (/tmp/lua_QmwwxV)
+- ✅ temp dir: writable (/tmp/lua_mAdgK2)
 
 ### CopilotChat.nvim [commands]
 
@@ -88,18 +88,38 @@
 
 ## nvim-treesitter
 
-*311 parsers with feature support. Run `:checkhealth nvim-treesitter` for full matrix.*
+### Requirements
 
-### Installation
+- ✅ Neovim was compiled with tree-sitter runtime ABI version 15 (required >=13).
+- ✅ tree-sitter-cli 0.26.8 (/opt/homebrew/bin/tree-sitter)
+- ✅ tar 3.5.3 (/usr/bin/tar)
+- ✅ curl 8.7.1 (/usr/bin/curl)
+  curl 8.7.1 (x86_64-apple-darwin25.0) libcurl/8.7.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.12 nghttp2/1.68.0
+  Release-Date: 2024-03-27
+  Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns ldap ldaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
+  Features: alt-svc AsynchDNS GSS-API HSTS HTTP2 HTTPS-proxy IPv6 Kerberos Largefile libz MultiSSL NTLM SPNEGO SSL threadsafe UnixSockets
 
-- ⚠️ `tree-sitter` executable not found (parser generator, only needed for :TSInstallFromGrammar, not required for :TSInstall)
-- ✅ `node` found v25.9.0 (only needed for :TSInstallFromGrammar)
-- ✅ `git` executable found.
-- ✅ `cc` executable found. Selected from { vim.NIL, "cc", "gcc", "clang", "cl", "zig" }
-  Version: Apple clang version 21.0.0 (clang-2100.0.123.102)
-- ✅ Neovim was compiled with tree-sitter runtime ABI version 15 (required >=13). Parsers must be compatible with runtime ABI.
+### OS Info
 
-*(11 additional info lines omitted)*
+- version: Darwin Kernel Version 25.4.0: Thu Mar 19 19:30:44 PDT 2026; root:xnu-12377.101.15~1/RELEASE_ARM64_T6000
+- sysname: Darwin
+- machine: arm64
+- release: 25.4.0
+
+### Install directory for parsers and queries
+
+- ✅ is writable.
+
+- ✅ is in runtimepath.
+
+- /Users/bf/.local/share/nvim/site
+
+### Installed languages H L F I J
+
+- lua ✓ ✓ ✓ ✓ ✓
+- markdown ✓ . ✓ ✓ ✓
+- markdown_inline ✓ . . . ✓
+  Legend: [H]ighlights, [L]ocals, [F]olds, [I]ndents, In[J]ections ~
 
 ## telescope
 
@@ -127,9 +147,14 @@
 
 ### System Info
 
+- ⚠️ Nvim 0.12.1 is available (current: 0.12.0)
+
 - Nvim version: `v0.12.0`
+
 - Operating system: Darwin 25.4.0
+
 - Terminal: WezTerm 20240203-110809-5046fc22
+
 - $TERM: xterm-256color
 
 ### Configuration
@@ -170,7 +195,7 @@
 
 - LSP log level : WARN
 - Log path: /Users/bf/.local/state/nvim/lsp.log
-- Log size: 3270 KB
+- Log size: 3299 KB
 
 ### vim.lsp: Active Features
 
@@ -290,8 +315,8 @@
 
 ### Treesitter parsers
 
-*325 items checked (all OK). Run `:checkhealth vim.treesitter` for full list.*
+*321 items checked (all OK). Run `:checkhealth vim.treesitter` for full list.*
 
 ### Treesitter queries
 
-*1171 items checked (all OK). Run `:checkhealth vim.treesitter` for full list.*
+*30 items checked (all OK). Run `:checkhealth vim.treesitter` for full list.*

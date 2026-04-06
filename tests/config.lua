@@ -19,7 +19,7 @@ local ok, err = pcall(function()
   package.loaded['CopilotChat'] = {
     setup = function() end,
   }
-  package.loaded['nvim-treesitter.configs'] = {
+  package.loaded['nvim-treesitter.config'] = {
     setup = function() end,
   }
   package.loaded['octo'] = {

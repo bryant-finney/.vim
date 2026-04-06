@@ -27,11 +27,12 @@ This repository contains a comprehensive Vim/Neovim configuration featuring:
 Install globally for LSP servers and the Neovim remote plugin host:
 
 ```bash
-npm install -g neovim vscode-langservers-extracted
+npm install -g neovim vscode-langservers-extracted tree-sitter-cli
 ```
 
 - **neovim**: Node.js host for Neovim remote plugins
 - **vscode-langservers-extracted**: Language servers for ESLint, JSON, HTML, and CSS
+- **tree-sitter-cli**: Parser generator required by nvim-treesitter for `:TSInstall`
 
 ### Optional Dependencies
 

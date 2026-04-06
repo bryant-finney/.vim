@@ -300,8 +300,8 @@ for _, section in ipairs(sections) do
                 -- Render filetypes as comma-separated inline code
                 local types = {}
                 for ft in value:gmatch('%S+') do
-                  ft = ft:gsub(',', '')
-                  if ft ~= '' then table.insert(types, '`' .. ft .. '`') end
+                  local cleaned = ft:gsub(',', '')
+                  if cleaned ~= '' then table.insert(types, '`' .. cleaned .. '`') end
                 end
                 table.insert(md, '- **filetypes:** ' .. table.concat(types, ', '))
               elseif key == 'root_markers' then

@@ -27,7 +27,7 @@
   LuaJIT 2.1.1774896198
   Run "nvim -V1 -v" for more info
 - ✅ initialized: true
-- ✅ temp dir: writable (/tmp/lua_SGN4ZI)
+- ✅ temp dir: writable (/tmp/lua_QmwwxV)
 
 ### CopilotChat.nvim [commands]
 

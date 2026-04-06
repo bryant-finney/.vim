@@ -13,9 +13,9 @@
 | [telescope](#telescope)             | ✅     | 4    | 0        | 0      |
 | [vim.deprecated](#vimdeprecated)    | ✅     | 1    | 0        | 0      |
 | [vim.health](#vimhealth)            | ✅     | 8    | 0        | 0      |
-| [vim.lsp](#vimlsp)                  | ⚠️     | 0    | 4        | 0      |
+| [vim.lsp](#vimlsp)                  | ⚠️     | 0    | 2        | 0      |
 | [vim.pack](#vimpack)                | ✅     | 1    | 0        | 0      |
-| [vim.provider](#vimprovider)        | ⚠️     | 3    | 4        | 0      |
+| [vim.provider](#vimprovider)        | ⚠️     | 3    | 1        | 0      |
 | [vim.treesitter](#vimtreesitter)    | ✅     | 1496 | 0        | 0      |
 
 ## CopilotChat
@@ -27,7 +27,7 @@
   LuaJIT 2.1.1774896198
   Run "nvim -V1 -v" for more info
 - ✅ initialized: true
-- ✅ temp dir: writable (/tmp/lua_o8cn3T)
+- ✅ temp dir: writable (/tmp/lua_bzESSI)
 
 ### CopilotChat.nvim [commands]
 
@@ -129,7 +129,7 @@
 
 - Nvim version: `v0.12.0`
 - Operating system: Darwin 25.4.0
-- Terminal: vscode 1.113.0-insider
+- Terminal: WezTerm 20240203-110809-5046fc22
 - $TERM: xterm-256color
 
 ### Configuration
@@ -152,7 +152,7 @@
 
 - key_backspace (kbs) terminfo entry: `key_backspace=^H`
 - key_dc (kdch1) terminfo entry: `key_dc=\E[3~`
-- $TERM_PROGRAM="vscode"
+- $TERM_PROGRAM="WezTerm"
 - $COLORTERM="truecolor"
 
 ### External Tools
@@ -181,8 +181,6 @@
 ### vim.lsp: Enabled Configurations
 
 - ⚠️ 'vscode-eslint-language-server' is not executable. Configuration will not be used.
-- ⚠️ Unknown filetype 'javascript.jsx' (Hint: filename extension != filetype).
-- ⚠️ Unknown filetype 'typescript.tsx' (Hint: filename extension != filetype).
 
 #### eslint
 
@@ -190,7 +188,7 @@
 
 - **cmd:** `vscode-eslint-language-server --stdio`
 
-- **filetypes:** `javascript`, `javascriptreact`, `javascript.jsx`, `typescript`, `typescriptreact`, `typescript.tsx`, `vue`, `svelte`, `astro`
+- **filetypes:** `javascript`, `javascriptreact`, `typescript`, `typescriptreact`, `vue`, `svelte`, `astro`, `htmlangular`
 
 - **on_attach:** `/Users/bf/.config/nvim/pack/nvim/start/nvim-lspconfig/lsp/eslint.lua:51`
 
@@ -266,10 +264,7 @@
 
 ### Perl provider (optional)
 
-- ⚠️ "Neovim::Ext" cpan module is not installed
-  - **Advice:** See :help |provider-perl| for more information.
-  - **Advice:** You can disable this provider (and warning) by adding `let g:loaded_perl_provider = 0` to your init.vim
-- ⚠️ No usable perl executable found
+- Disabled (loaded_perl_provider=0).
 
 ### Python 3 provider (optional)
 
@@ -297,15 +292,7 @@
 
 ### Ruby provider (optional)
 
-- ⚠️ `neovim-ruby-host` not found.
-
-  - **Advice:** Run `gem install neovim` to ensure the neovim RubyGem is installed.
-  - **Advice:** Run `gem environment` to ensure the gem bin directory is in $PATH.
-  - **Advice:** If you are using rvm/rbenv/chruby, try "rehashing".
-  - **Advice:** See :help |g:ruby_host_prog| for non-standard gem installations.
-  - **Advice:** You can disable this provider (and warning) by adding `let g:loaded_ruby_provider = 0` to your init.vim
-
-- Ruby: 2.6.10
+- Disabled (loaded_ruby_provider=0).
 
 ## vim.treesitter
 

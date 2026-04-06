@@ -1,3 +1,14 @@
 vim.lsp.enable('eslint')
 
-return {}
+return {
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+    'vue',
+    'svelte',
+    'astro',
+    'htmlangular',
+  },
+}

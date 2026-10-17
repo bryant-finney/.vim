@@ -69,6 +69,11 @@ args = [{ default = "tests/config.lua", name = "lua" }]
 help = "Run configuration tests"
 ref  = "_headless_nvim_lua"
 
+[tool.poe.tasks.test-startup]
+args = [{ default = "tests/startup.lua", name = "lua" }]
+help = "Test that Neovim starts without errors using the installed plugins"
+ref  = "_headless_nvim_lua_with_plugins"
+
 [tool.poe.tasks.test-eslint]
 args = [{ default = "tests/eslint-lsp.lua", name = "lua" }]
 help = "Test eslint LSP functionality"
@@ -111,6 +116,7 @@ sequence = [
   "check-lua-syntax",
   "check-taplo-version",
   "test-config",
+  "test-startup",
   "test-lua_ls",
   "test-ruff",
   "test-pyright",

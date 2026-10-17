@@ -123,7 +123,6 @@ Clean unused plugins:
 ### Automatic Formatting on Save
 
 - **Python**: Formatted with ruff and ruff_format via ALE
-- **JSON**: Formatted with python's json.tool
 - **Shell**: Formatted with shfmt (options: `-i 2 -ci -kp`)
 - **JavaScript/TypeScript/CSS/YAML/TOML/Markdown**: Formatted with prettier
 

@@ -339,10 +339,6 @@ autocmd FileType c,cpp,markdown,tex,vim autocmd BufWritePre <buffer> nested :cal
 " tabs -> spaces on write (for python)
 autocmd FileType c,cpp,python autocmd BufWritePre <buffer> nested %s/\t/    /e
 
-" configure vim to automatically format json text on write
-com! FormatJSON %!python -m json.tool
-autocmd FileType json autocmd BufWritePre <buffer> nested :FormatJSON
-
 " use the black autoformatter for python
 "   update 2019-03-18 11:25: ALE should autmatically call black
 " autocmd FileType python autocmd BufWritePre <buffer> nested :Black
